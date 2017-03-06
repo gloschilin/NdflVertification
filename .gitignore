@@ -1,0 +1,12 @@
+
+*.dll
+*.pdb
+*.xml
+
+*/obj/*
+*/bin/*
+*/packages/*
+*.transform
+*.nupkg
+*.xdt
+*.ps1
