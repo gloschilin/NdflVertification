@@ -13,6 +13,7 @@ namespace NdflVerification.Api
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            UnityConfig.RegisterComponents();
         }
     }
 }
