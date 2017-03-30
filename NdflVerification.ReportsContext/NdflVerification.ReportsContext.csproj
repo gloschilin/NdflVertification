@@ -64,6 +64,7 @@
     <Compile Include="Domain\Person.cs" />
     <Compile Include="Domain\Services\Factories\NdflTwoXsdReportBuilder.cs" />
     <Compile Include="Domain\Services\Factories\ReportFactory.cs" />
+    <Compile Include="Domain\Services\Factories\XsdImplement\Esss\EsssXsdResult.cs" />
     <Compile Include="Domain\Services\Factories\XsdImplement\Six\SixNdflXsdReslt.cs" />
     <Compile Include="Domain\Services\Factories\XsdImplement\Two\TwoNdflXsdResult.cs" />
     <Compile Include="Domain\Services\Validators\IReportStepValidator.cs" />
