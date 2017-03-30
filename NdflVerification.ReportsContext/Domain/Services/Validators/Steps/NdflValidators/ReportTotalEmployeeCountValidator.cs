@@ -1,6 +1,6 @@
 ﻿using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
-namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
+namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.NdflValidators
 {
     /// <summary>
     /// Количество ребят, получивших доход.

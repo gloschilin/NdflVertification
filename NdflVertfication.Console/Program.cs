@@ -20,10 +20,10 @@ namespace NdflVertfication.Console
             TextsInstaller.Install(Container);
         }
         private const string PathToTwoNdflFile =
-            @"C:\Users\Loschilin\Downloads\NO_NDFL2_7708_7708_7708710346770801001_20170302_464f46b7-aac4-407c-b197-dccb1e05a8be.xml";
+            @"C:\Users\Loschilin\Downloads\NO_NDFL2_7708_7708_7708710346770801001_20170329_fc1bfad1-b73b-43be-a2c5-688469cb8e75.xml";
 
         private const string PathToSixNdflFile =
-            @"C:\Users\Loschilin\Downloads\NO_NDFL6_7708_7708_7708710346770801001_20170302_285f7da1-d07c-4454-b189-b997123a040b.xml";
+            @"C:\Users\Loschilin\Downloads\NO_NDFL6_7708_7708_7708710346770801001_20170329_4d069f09-094e-4a22-8b99-3daf3273f27c.xml";
 
         static void Main(string[] args)
         {
@@ -58,7 +58,8 @@ namespace NdflVertfication.Console
 
         public void Handle(CheckReportType checkReportType, ValidationResultType validationResultType)
         {
-            System.Console.WriteLine($"{_textDictionary[checkReportType.ToString()]} : {validationResultType}");
+            System.Console.WriteLine($"{checkReportType} : {validationResultType}");
+            //System.Console.WriteLine($"{_textDictionary[checkReportType.ToString()]} : {validationResultType}");
         }
     }
 }

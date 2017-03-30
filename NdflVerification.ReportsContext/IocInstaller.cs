@@ -4,6 +4,9 @@ using NdflVerification.ReportsContext.Domain;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Steps;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Steps.NdflValidators;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Steps.SixNdflValidators;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Steps.TwoNdflValidators;
 
 namespace NdflVerification.ReportsContext
 {

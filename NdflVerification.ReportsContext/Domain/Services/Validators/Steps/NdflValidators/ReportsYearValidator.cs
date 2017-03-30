@@ -1,6 +1,7 @@
 ﻿using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Steps.TwoNdflValidators;
 
-namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
+namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.NdflValidators
 {
     /// <summary>
     ///  Проверка по дате.

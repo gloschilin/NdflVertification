@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
-namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
+namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.TwoNdflValidators
 {
     /// <summary>
     ///  Являться формой 2-НДФЛ, а не другой формой отчета. Проверка по форме.

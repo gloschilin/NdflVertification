@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
-namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
+namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.TwoNdflValidators
 {
     /// <summary>
     /// Иметь признак 1. Проверка по признаку.
