@@ -73,6 +73,11 @@
         /// <summary>
         /// Количество ребят, получивших доход.
         /// </summary>
-        ReportsTotalEmployeeCount
+        ReportsTotalEmployeeCount,
+
+        /// <summary>
+        /// СВ01
+        /// </summary>
+        EsssSv01Validator
     }
 }

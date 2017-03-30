@@ -7,7 +7,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
     /// Базовый класс валидатора
     /// </summary>
     /// <typeparam name="TReport"></typeparam>
-    internal abstract class BaseReportStepValidator<TReport>: 
+    public abstract class BaseReportStepValidator<TReport>: 
         IReportStepValidator<TReport>, ISpecification<TReport>
     {
         private readonly IValidationResultHandler _validationResultHandler;
