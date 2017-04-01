@@ -1,10 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Xml.Linq;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Factories
 {
-    internal class ReportFactory<TReport>: IReportFactory<TReport>
+    public class ReportFactory<TReport>: IReportFactory<TReport>
+        where TReport: class
     {
         private readonly IXmlReportBuilder<TReport> _xmlReportBuilder;
         public ReportFactory(IXmlReportBuilder<TReport> xmlReportBuilder)
@@ -43,10 +45,23 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
 
             var fileContent = File.ReadAllText(pathToFile, GetEncoding());
 
-            //TODO: handle exception
             var xmlDocumnet = XDocument.Parse(fileContent);
 
             return ReadFromXml(xmlDocumnet);
+        }
+
+        public bool TryReadFromLocalFile(string pathToFile, out TReport report)
+        {
+            report = null;
+            try
+            {
+                report = ReadFromLocalFile(pathToFile);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private static Encoding GetEncoding()

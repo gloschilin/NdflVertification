@@ -1,4 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using System.IO;
+using System.Xml.Linq;
+using System.Xml.Serialization;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Factories
 {
@@ -14,5 +17,19 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         /// <param name="xmlDocument"></param>
         /// <returns></returns>
         TReport BuildFromXml(XDocument xmlDocument);
+    }
+
+    public class XmlEsssBuilder: IXmlReportBuilder<Файл>
+    {
+        public Файл BuildFromXml(XDocument xmlDocument)
+        {
+            var serializer = new XmlSerializer(typeof(XsdImplement.Six.Файл));
+
+            using (var reader = new StringReader(xmlDocument.ToString()))
+            {
+                var xsdResult = (Файл)serializer.Deserialize(reader);
+                return xsdResult;
+            }
+        }
     }
 }

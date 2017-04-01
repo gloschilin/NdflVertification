@@ -7,7 +7,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
     /// Фабрика получения отчетов
     /// </summary>
     /// <typeparam name="TReport"></typeparam>
-    public interface IReportFactory<out TReport>
+    public interface IReportFactory<TReport>
     {
         /// <summary>
         /// Получение отчета из потока
@@ -29,5 +29,13 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         /// <param name="pathToFile"></param>
         /// <returns></returns>
         TReport ReadFromLocalFile(string pathToFile);
+
+        /// <summary>
+        /// Чтение отчета из локального фала
+        /// </summary>
+        /// <param name="pathToFile"></param>
+        /// <param name="report"></param>
+        /// <returns></returns>
+        bool TryReadFromLocalFile(string pathToFile, out TReport report);
     }
 }

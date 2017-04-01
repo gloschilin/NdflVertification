@@ -2,6 +2,7 @@
 using Microsoft.Practices.Unity;
 using NdflVerification.ReportsContext.Domain;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Steps;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Steps.NdflValidators;
@@ -15,16 +16,16 @@ namespace NdflVerification.ReportsContext
         public static void Install(IUnityContainer container)
         {
             container.RegisterType(typeof (IReportFactory<>), typeof (ReportFactory<>), new ContainerControlledLifetimeManager());
-            //container.RegisterType<IXmlReportBuilder<SixNdfl>, NdflSixXmlReportBuilder>(new ContainerControlledLifetimeManager());
             container.RegisterType<IXmlReportBuilder<SixNdfl>, NdflSixXsdReportBuilder>(new ContainerControlledLifetimeManager());
-            //container.RegisterType<IXmlReportBuilder<TwoNdfl>, NdflTwoXmlReportBuilder>(new ContainerControlledLifetimeManager());
             container.RegisterType<IXmlReportBuilder<TwoNdfl>, NdflTwoXsdReportBuilder>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IXmlReportBuilder<Файл>, XmlEsssBuilder>(new ContainerControlledLifetimeManager());
 
             container.RegisterType(typeof (IReportValidator<>), typeof (ReportValidator<>), new ContainerControlledLifetimeManager());
 
             container.RegisterType(typeof (IEnumerable<IReportStepValidator<SixNdfl>>), typeof (IReportStepValidator<SixNdfl>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<TwoNdfl>>), typeof(IReportStepValidator<TwoNdfl>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Reports>>), typeof(IReportStepValidator<Reports>[]), new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof(IEnumerable<IReportStepValidator<Файл>>), typeof(IReportStepValidator<Файл>[]), new ContainerControlledLifetimeManager());
 
             container.RegisterType<IReportStepValidator<Reports>, ReportsInnAndKppStepValidator>("ReportsInnAndKppStepValidator", new ContainerControlledLifetimeManager());
             container.RegisterType<IReportStepValidator<Reports>, ReportsYearValidator>("ReportsYearValidator", new ContainerControlledLifetimeManager());
