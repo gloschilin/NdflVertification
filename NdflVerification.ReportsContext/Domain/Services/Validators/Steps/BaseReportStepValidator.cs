@@ -1,4 +1,5 @@
-﻿using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
+﻿using System.Linq;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 using NdflVerification.ReportsContext.Utils;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
@@ -37,5 +38,11 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
         /// <param name="entity"></param>
         /// <returns></returns>
         public abstract bool IsSpecificatiedBy(TReport entity);
+
+        protected static bool AllEquals<T>(params T[] paramseters)
+        {
+            var first = paramseters.First();
+            return paramseters.All(e => e.Equals(first));
+        }
     }
 }

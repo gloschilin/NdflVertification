@@ -78,6 +78,33 @@
         /// <summary>
         /// СВ01
         /// </summary>
-        EsssSv01Validator
+        EsssSv01Validator,
+        Sv152Validator,
+        Sv153Validator,
+        Sv154Validator,
+        Sv155Validator,
+        Sv156Validator,
+        Sv157Validator,
+        Sv158Validator,
+        Sv159Validator,
+        Sv16Validator,
+        Sv161Validator,
+        Sv162Validator,
+        Sv163Validator,
+        Sv164Validator,
+        Sv165Validator,
+        Sv166Validator,
+        Sv167Validator,
+        Sv168Validator,
+        Sv169Validator,
+        Sv17Validator,
+        Sv171Validator,
+        Sv172Validator,
+        Sv173Validator,
+        Sv174Validator,
+        Sv175Validator,
+        Sv176Validator,
+        Sv177Validator,
+        Sv178Validator
     }
 }

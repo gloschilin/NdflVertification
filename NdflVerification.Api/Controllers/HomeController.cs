@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 
 namespace NdflVerification.Api.Controllers
 {
@@ -9,6 +10,13 @@ namespace NdflVerification.Api.Controllers
             ViewBag.Title = "Home Page";
 
             return View();
+        }
+
+        [Route("~/reports/esss")]
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file)
+        {
+            return null;
         }
     }
 }
