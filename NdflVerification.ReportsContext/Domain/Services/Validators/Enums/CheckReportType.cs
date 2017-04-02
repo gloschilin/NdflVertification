@@ -1,4 +1,5 @@
-﻿namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
+﻿
+namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
 {
     /// <summary>
     /// Тип проверки
@@ -105,6 +106,51 @@
         Sv175Validator,
         Sv176Validator,
         Sv177Validator,
-        Sv178Validator
+        Sv178Validator,
+        Sv179Validator,
+        Sv18Validator,
+        Sv181Validator,
+        Sv182Validator,
+        Sv183Validator,
+        Sv184Validator,
+        Sv185Validator,
+        Sv186Validator,
+        Sv187Validator,
+        Sv188Validator,
+        Sv189Validator,
+        Sv19Validator,
+        Sv191Validator,
+        Sv192Validator,
+        Sv193Validator,
+        Sv194Validator,
+        Sv195Validator,
+        Sv196Validator,
+        Sv197Validator,
+        Sv198Validator,
+        Sv199Validator,
+        Sv1100Validator,
+        Sv1101Validator,
+        Sv1102Validator,
+        Sv1103Validator,
+        Sv1104Validator,
+        Sv1105Validator,
+        Sv1106Validator,
+        Sv1107Validator,
+        Sv1108Validator,
+        Sv1109Validator,
+        Sv1110Validator,
+        Sv1111Validator,
+        Sv1112Validator,
+        Sv1113Validator,
+        Sv1114Validator,
+        Sv1115Validator,
+        Sv1116Validator,
+        Sv1117Validator,
+        Sv1118Validator,
+        Sv1119Validator,
+        Sv1120Validator,
+        Sv1121Validator,
+        Sv1122Validator,
+        Sv1123Validator
     }
 }

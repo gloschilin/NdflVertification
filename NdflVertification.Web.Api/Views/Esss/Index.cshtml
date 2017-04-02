@@ -1,0 +1,26 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <form method="post" action="/reports/111/esss" enctype="multipart/form-data" id="formid">
+        <input type="file" name="file" />
+        <input type="button" id="btnid" value="Send" />
+    </form>
+    <script type="text/javascript">
+
+    $(document).on("click", "#btnid", function (event) {
+        event.preventDefault();
+        var fileOptions = {
+            success: function() {},
+            dataType: "json"
+        }
+        $("#formid").ajaxSubmit(fileOptions);
+    });
+
+    </script>
+</body>
+</html>

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdflVertfication.Console", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdflVerification.Texts", "NdflVerification.Texts\NdflVerification.Texts.csproj", "{91800DD2-1FBC-44BB-99E4-54BB047BDB99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NdflVertification.Web.Api", "NdflVertification.Web.Api\NdflVertification.Web.Api.csproj", "{95D707FC-D351-4C2B-885E-3CD4CEBF63BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{91800DD2-1FBC-44BB-99E4-54BB047BDB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91800DD2-1FBC-44BB-99E4-54BB047BDB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91800DD2-1FBC-44BB-99E4-54BB047BDB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D707FC-D351-4C2B-885E-3CD4CEBF63BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D707FC-D351-4C2B-885E-3CD4CEBF63BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D707FC-D351-4C2B-885E-3CD4CEBF63BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D707FC-D351-4C2B-885E-3CD4CEBF63BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
