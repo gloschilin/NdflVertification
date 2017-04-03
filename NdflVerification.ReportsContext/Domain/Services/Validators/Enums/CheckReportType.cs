@@ -204,6 +204,11 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         Sv1243Validator,
         Sv1244Validator,
         Sv1245Validator,
-        Sv1246Validator
+        Sv1246Validator,
+        Sv1255Validator,
+        Sv1256Validator,
+        Sv1257Validator,
+        Sv1292Validator,
+        Sv1303Validator
     }
 }
