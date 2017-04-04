@@ -3,13 +3,13 @@ using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssValidators
 {
-    public class Sv18Validator : BaseReportStepValidator<Файл>
+    public class Sv180Validator : BaseReportStepValidator<Файл>
     {
-        public Sv18Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv180Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
         {
         }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv18Validator;
+        protected override CheckReportType CheckReportType => CheckReportType.Sv180Validator;
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
