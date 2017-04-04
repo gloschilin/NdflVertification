@@ -155,6 +155,15 @@
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1256Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1257Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1292Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv16Validator2.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv15Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv14Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv13Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv12Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv11Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv10Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv02Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv01Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv152Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv153Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv154Validator.cs" />
@@ -214,6 +223,7 @@
     <Compile Include="Domain\Services\Validators\Steps\TwoNdflValidators\TwoNdflRateStepValidator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\TwoNdflValidators\TwoNdflSignStepValidator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\TwoNdflValidators\TwoNdflYearValidator.cs" />
+    <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Utils\ISpecification.cs" />
     <Compile Include="Domain\Services\Validators\IValidationResultHandler.cs" />
     <Compile Include="Domain\Services\Validators\Steps\SixNdflValidators\SixNdflFormStepValidator.cs" />

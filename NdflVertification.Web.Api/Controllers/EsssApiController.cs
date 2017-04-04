@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using System.Web.Routing;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
@@ -15,7 +14,7 @@ using NdflVertification.Web.Api.Utils;
 
 namespace NdflVertification.Web.Api.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EsssApiController : ApiController
     {
         private readonly IReportFactory<Файл> _essReportFactory;

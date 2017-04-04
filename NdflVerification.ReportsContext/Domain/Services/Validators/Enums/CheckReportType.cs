@@ -79,7 +79,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         /// <summary>
         /// СВ01
         /// </summary>
-        EsssSv01Validator,
+        Sv01Validator,
+        Sv02Validator,
+        Sv10Validator,
+        Sv11Validator,
+        Sv12Validator,
+        Sv13Validator,
+        Sv14Validator,
+        Sv15Validator,
         Sv152Validator,
         Sv153Validator,
         Sv154Validator,
@@ -209,6 +216,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         Sv1256Validator,
         Sv1257Validator,
         Sv1292Validator,
-        Sv1303Validator
+        Sv1303Validator,
+        Sv16Validator
     }
 }
