@@ -3,9 +3,9 @@ using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssValidators
 {
-    public class Sv152Validator : BaseReportStepValidator<Файл>
+    public class Sv151Validator : BaseReportStepValidator<Файл>
     {
-        public Sv152Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv151Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
         {
         }
 
@@ -16,8 +16,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
             foreach (
                 var файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс in entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС)
             {
-                if (!AllEquals(файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ПревБазОПС.КолВсегоПер.ToInt(),
-                    файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ПревБазОПС.КолВсегоПосл3М.ToInt()))
+                if (файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ПревБазОПС.КолВсегоПер.ToInt()
+                    < 0)
                 {
                     return false;
                 }

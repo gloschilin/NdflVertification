@@ -3,21 +3,21 @@ using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssValidators
 {
-    public class Sv152Validator : BaseReportStepValidator<Файл>
+    public class Sv134Validator : BaseReportStepValidator<Файл>
     {
-        public Sv152Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv134Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
         {
         }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv151Validator;
+        protected override CheckReportType CheckReportType => CheckReportType.Sv134Validator;
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
             foreach (
                 var файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс in entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС)
             {
-                if (!AllEquals(файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ПревБазОПС.КолВсегоПер.ToInt(),
-                    файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ПревБазОПС.КолВсегоПосл3М.ToInt()))
+                if (файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.КолСтрахЛицВс.Кол3Посл3М.ToInt()
+                    < файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.КолЛицНачСВВс.Кол3Посл3М.ToInt())
                 {
                     return false;
                 }

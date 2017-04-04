@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace NdflVerification.ReportsContext.Extensions
 {
@@ -11,7 +12,7 @@ namespace NdflVerification.ReportsContext.Extensions
 
         public static DateTime ToDateTime(this string text)
         {
-            return DateTime.Parse(text);
+            return DateTime.ParseExact(text, "dd.MM.yyyy", null, DateTimeStyles.None);
         }
     }
 }
