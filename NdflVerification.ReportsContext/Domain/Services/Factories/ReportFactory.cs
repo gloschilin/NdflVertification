@@ -58,7 +58,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
                 report = ReadFromLocalFile(pathToFile);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return false;
             }

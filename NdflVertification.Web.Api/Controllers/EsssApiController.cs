@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Routing;
+using NdflVerification.ReportsContext.Domain.Services.Factories;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
+using NdflVerification.ReportsContext.Domain.Services.Validators;
+
+namespace NdflVertification.Web.Api.Controllers
+{
+    public class EsssApiController : ApiController
+    {
+        private readonly IReportFactory<Файл> _essReportFactory;
+        private readonly IReportValidator<Файл> _validator;
+
+        public EsssApiController(IReportFactory<Файл> essReportFactory, IReportValidator<Файл> validator)
+        {
+            _essReportFactory = essReportFactory;
+            _validator = validator;
+        }
+
+        [HttpGet]
+        [Route("~/reports/{actionUserId}/esss")]
+        public IHttpActionResult Validate(int actionUserId)
+        {
+            string path = $"~/Files/{actionUserId}";
+            var file =
+                _essReportFactory.ReadFromLocalFile(
+                    System.Web.Hosting.HostingEnvironment.MapPath($"{path}/esss.file"));
+            _validator.Validate(file);
+            return Ok();
+        }
+    }
+}

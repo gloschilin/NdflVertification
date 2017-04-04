@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using System.Diagnostics;
+using Microsoft.Practices.Unity;
 using NdflVerification.ReportsContext;
 using NdflVerification.ReportsContext.Domain;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
@@ -59,6 +60,7 @@ namespace NdflVertfication.Console
         public void Handle(CheckReportType checkReportType, ValidationResultType validationResultType)
         {
             System.Console.WriteLine($"{checkReportType} : {validationResultType}");
+            Debug.WriteLine($"{checkReportType} : {validationResultType}");
             //System.Console.WriteLine($"{_textDictionary[checkReportType.ToString()]} : {validationResultType}");
         }
     }

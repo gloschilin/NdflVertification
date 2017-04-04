@@ -23,7 +23,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
     {
         public Файл BuildFromXml(XDocument xmlDocument)
         {
-            var serializer = new XmlSerializer(typeof(XsdImplement.Six.Файл));
+            var serializer = new XmlSerializer(typeof(Файл));
 
             using (var reader = new StringReader(xmlDocument.ToString()))
             {

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Microsoft.Practices.Unity;
 using NdflVerification.ReportsContext.Domain;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
@@ -13,8 +15,23 @@ namespace NdflVerification.ReportsContext
 {
     public static class IocInstaller
     {
+        private static void IntallEsss(IUnityContainer container)
+        {
+            var mscorlib = typeof(BaseReportStepValidator<Файл>).Assembly;
+            var types =
+                mscorlib.GetTypes()
+                    .Where(e => typeof (BaseReportStepValidator<Файл>).IsAssignableFrom(e) && !e.IsAbstract)
+                    .ToList();
+            foreach (var type in types)
+            {
+                container.RegisterType(typeof (IReportStepValidator<Файл>), type, type.FullName);
+            }
+        }
+
         public static void Install(IUnityContainer container)
         {
+            IntallEsss(container);
+
             container.RegisterType(typeof (IReportFactory<>), typeof (ReportFactory<>), new ContainerControlledLifetimeManager());
             container.RegisterType<IXmlReportBuilder<SixNdfl>, NdflSixXsdReportBuilder>(new ContainerControlledLifetimeManager());
             container.RegisterType<IXmlReportBuilder<TwoNdfl>, NdflTwoXsdReportBuilder>(new ContainerControlledLifetimeManager());

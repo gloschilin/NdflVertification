@@ -4,15 +4,19 @@
 <html>
 <head>
     <title>title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
-    <form method="post" action="/reports/111/esss" enctype="multipart/form-data" id="formid">
-        <input type="file" name="file" />
-        <input type="button" id="btnid" value="Send" />
-    </form>
-    <script type="text/javascript">
 
-    $(document).on("click", "#btnid", function (event) {
+<form method="post" action="/reports/@ViewBag.ActionUserId/esss" enctype="multipart/form-data" id="formid">
+    <input type="file" name="file"/>
+    <input type="button" id="btnid" value="Send"/>
+</form>
+    
+<script type="text/javascript">
+
+    $(document).on("click", "#btnid", function(event) {
         event.preventDefault();
         var fileOptions = {
             success: function() {},
@@ -21,6 +25,7 @@
         $("#formid").ajaxSubmit(fileOptions);
     });
 
-    </script>
+</script>
+    
 </body>
 </html>

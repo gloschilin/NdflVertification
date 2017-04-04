@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using NdflVertification.Web.Api.App_Start;
+﻿using System.Web.Mvc;
 
 namespace NdflVertification.Web.Api.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ITest _test;
-
-        public HomeController(ITest test)
-        {
-            _test = test;
-        }
 
 
         public ActionResult Index()

@@ -1,23 +1,17 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using NdflVerification.ReportsContext;
+using NdflVerification.ReportsContext.Domain.Services.Validators;
+using NdflVertification.Web.Api.Utils;
 
 namespace NdflVertification.Web.Api.App_Start
 {
-    public interface ITest
-    {
-
-    }
-
-    public class Test : ITest
-    {
-
-    }
 
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>
-    public class UnityConfig
+    public class MvcUnityConfig
     {
         #region Unity Container
         private static Lazy<IUnityContainer> container = new Lazy<IUnityContainer>(() =>
@@ -44,10 +38,8 @@ namespace NdflVertification.Web.Api.App_Start
         {
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
-
-            // TODO: Register your types here
-            // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<ITest, Test>();
+            IocInstaller.Install(container);
+            container.RegisterType<IValidationResultHandler, WebValidationResultHandler>();
         }
     }
 }

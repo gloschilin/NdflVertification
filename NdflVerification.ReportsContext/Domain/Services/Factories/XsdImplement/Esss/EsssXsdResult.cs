@@ -3316,9 +3316,9 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("СправСтудОтряд", typeof (СправТип))]
-        [System.Xml.Serialization.XmlElementAttribute("СправФормОбуч", typeof (СправТип))]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
+        //[System.Xml.Serialization.XmlElementAttribute("СправСтудОтряд", typeof (СправТип))]
+        //[System.Xml.Serialization.XmlElementAttribute("СправФормОбуч", typeof (СправТип))]
+        //[System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public СправТип Item
         {
             get { return this.itemField; }
