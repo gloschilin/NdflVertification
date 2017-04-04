@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Linq;
+using System.Web.Http;
 
 namespace NdflVertification.Web.Api
 {
@@ -18,6 +19,15 @@ namespace NdflVertification.Web.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+
+            //Clear all the formatters from the config.Formatters collection and just add back the XmlMediaTypeFormatter.
+            //That will ensure you only have one available formatter
+            //http://forums.asp.net/t/1804419.aspx/2/10?how+to+set+a+Web+API+REST+service+to+always+return+XML+not+JSON
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new System.Net.Http.Formatting.XmlMediaTypeFormatter());
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
         }
     }
 }

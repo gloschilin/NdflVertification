@@ -73,7 +73,6 @@
     <Compile Include="Domain\Services\Validators\Steps\BaseReportStepValidator.cs" />
     <Compile Include="Domain\Services\Validators\Enums\CheckReportType.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Extentions.cs" />
-    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv01Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1100Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1101Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv1102Validator.cs" />

@@ -14,7 +14,18 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            throw new NotImplementedException();
+            foreach (
+                var файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс in entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС)
+            {
+                if (!AllEquals(файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ВыплНачислФЛ.СумВсегоПер,
+                    0 
+                    + файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.ВыплНачислФЛ.СумВсегоПосл3М))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

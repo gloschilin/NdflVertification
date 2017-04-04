@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using NdflVerification.ReportsContext;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
+using NdflVerification.Texts;
 using NdflVertification.Web.Api.Utils;
 
 namespace NdflVertification.Web.Api.App_Start
@@ -39,6 +40,7 @@ namespace NdflVertification.Web.Api.App_Start
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
             IocInstaller.Install(container);
+            TextsInstaller.Install(container);
             container.RegisterType<IValidationResultHandler, WebValidationResultHandler>();
         }
     }

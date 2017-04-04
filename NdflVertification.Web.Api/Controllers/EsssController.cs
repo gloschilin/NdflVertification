@@ -1,11 +1,13 @@
 ﻿using System.Net;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 
 namespace NdflVertification.Web.Api.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EsssController : Controller
     {
         private readonly IReportFactory<Файл> _essReportFactory;
@@ -24,7 +26,7 @@ namespace NdflVertification.Web.Api.Controllers
         }
 
         [HttpPost]
-        [Route("~/reports/{actionUserId}/esss")]
+        [Route("~/reports/{actionUserId}/esss/upload")]
         public ActionResult Load(int actionUserId, HttpPostedFileBase file)
         {
             string path = $"~/Files/{actionUserId}";

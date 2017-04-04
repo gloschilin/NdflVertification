@@ -14,7 +14,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         public override bool IsSpecificatiedBy(Файл entity)
         {
             if (entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.ВыплНачислФЛ.СумВсегоПер
-                < entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.БазНачислСВ.СумВсегоПер)
+                < entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.БазПревышСВ.СумВсегоПер)
             {
                 return false;
             }

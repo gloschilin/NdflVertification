@@ -42,7 +42,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
         protected static bool AllEquals<T>(params T[] paramseters)
         {
             var first = paramseters.First();
-            return paramseters.All(e => e.Equals(first));
+            var result = paramseters.All(e => e != null && e.Equals(first));
+            return result;
         }
     }
 }

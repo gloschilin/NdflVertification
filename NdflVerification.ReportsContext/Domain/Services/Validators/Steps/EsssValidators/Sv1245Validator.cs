@@ -13,7 +13,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            if (AllEquals(entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.ВозмРасхСО.СумВсегоПер,
+            if (!AllEquals(entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.ВозмРасхСО.СумВсегоПер,
                 0
                 + entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОССВНМ.ВозмРасхСО.СумВсегоПосл3М))
             {

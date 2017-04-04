@@ -13,7 +13,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            if (entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427.ДолДох6427 < 70)
+            if (entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427?.ДолДох6427 < 70)
             {
                 return false;
             }
