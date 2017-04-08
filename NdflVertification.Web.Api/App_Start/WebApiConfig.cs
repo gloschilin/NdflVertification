@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace NdflVertification.Web.Api
 {
@@ -10,7 +11,6 @@ namespace NdflVertification.Web.Api
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             //config.SuppressDefaultHostAuthentication();
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 

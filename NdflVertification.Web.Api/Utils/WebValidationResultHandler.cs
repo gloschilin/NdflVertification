@@ -44,8 +44,8 @@ namespace NdflVertification.Web.Api.Utils
         {
             Debug.WriteLine($"{checkReportType} : {validationResultType}");
             var result = (HttpContext.Current.Items["WebValidationResultHandler"] as List<WebValidationInfo>) ?? new List<WebValidationInfo>();
-            //var message = _textDictionary[checkReportType.ToString()] ?? checkReportType.ToString();
-            var message = checkReportType.ToString();
+            var message = _textDictionary[checkReportType.ToString()] ?? checkReportType.ToString();
+            //var message = checkReportType.ToString();
             result.Add(new WebValidationInfo(validationResultType, message)
             {
                 Label = checkReportType.ToString()

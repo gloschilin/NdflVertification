@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
+using NdflVerification.ReportsContext.Domain.Services.Validators;
 
 namespace NdflVertification.Web.Api.Controllers
 {
@@ -10,10 +11,12 @@ namespace NdflVertification.Web.Api.Controllers
     public class EsssController : Controller
     {
         private readonly IReportFactory<Файл> _essReportFactory;
+        private readonly IReportValidator<Файл> _validator;
 
-        public EsssController(IReportFactory<Файл> essReportFactory)
+        public EsssController(IReportFactory<Файл> essReportFactory, IReportValidator<Файл> validator)
         {
             _essReportFactory = essReportFactory;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -29,10 +32,7 @@ namespace NdflVertification.Web.Api.Controllers
         public ActionResult Load(int actionUserId, HttpPostedFileBase file)
         {
             string path = $"~/Files/{actionUserId}";
-            if (!Request.IsAjaxRequest())
-            {
-                throw new HttpException(404, "");
-            }
+            
             //check dir
             if (!System.IO.Directory.Exists(Server.MapPath(path)))
             {
@@ -44,7 +44,15 @@ namespace NdflVertification.Web.Api.Controllers
             Файл result;
             if (!_essReportFactory.TryReadFromLocalFile(Server.MapPath($"{path}/esss.file"), out result))
             {
-                throw new HttpException(409, "Incorrent format");
+                System.IO.File.Delete(Server.MapPath($"{path}/esss.file"));
+                throw new HttpException(400, "Incorrent format");
+            }
+
+            //try valid file
+            if (!_validator.TryValidate(result))
+            {
+                System.IO.File.Delete(Server.MapPath($"{path}/esss.file"));
+                throw new HttpException(400, "Incorrent format");
             }
 
             return Json(new { result = "ok" });

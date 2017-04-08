@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators
 {
@@ -16,6 +17,19 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
             foreach (var stepValidator in _stepValidators)
             {
                 stepValidator.Validate(report);
+            }
+        }
+
+        public bool TryValidate(TReport report)
+        {
+            try
+            {
+                Validate(report);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }

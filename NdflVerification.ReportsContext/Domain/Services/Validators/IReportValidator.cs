@@ -10,5 +10,12 @@
         /// </summary>
         /// <param name="report"></param>
         void Validate(TReport report);
+
+        /// <summary>
+        /// проверка на возможность проверить файл
+        /// </summary>
+        /// <param name="report"></param>
+        /// <returns></returns>
+        bool TryValidate(TReport report);
     }
 }

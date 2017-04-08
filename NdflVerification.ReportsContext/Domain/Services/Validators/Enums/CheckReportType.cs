@@ -80,8 +80,6 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         /// СВ01
         /// </summary>
         Sv01Validator,
-        Sv02Validator,
-        Sv10Validator,
         Sv11Validator,
         Sv12Validator,
         Sv13Validator,

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 using NdflVerification.ReportsContext.Utils;
 
@@ -25,6 +26,19 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
                 specificationResult 
                     ? ValidationResultType.Success
                     : ValidationResultType.Error);
+        }
+
+        public bool TryValidate(TReport report)
+        {
+            try
+            {
+                Validate(report);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         /// <summary>

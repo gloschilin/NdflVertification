@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Http;
-using System.Web.Routing;
+using System.Web.Http.Cors;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
-using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 using NdflVertification.Web.Api.Utils;
 
 namespace NdflVertification.Web.Api.Controllers
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EsssApiController : ApiController
     {
         private readonly IReportFactory<Файл> _essReportFactory;
@@ -39,7 +34,7 @@ namespace NdflVertification.Web.Api.Controllers
             var result = HttpContext.Current.Items["WebValidationResultHandler"] as List<WebValidationInfo> 
                 ?? new List<WebValidationInfo>();
 
-            return Ok(result.Where(e=>e.Status == ValidationResultType.Error));
+            return Ok(result);
         }
     }
 }

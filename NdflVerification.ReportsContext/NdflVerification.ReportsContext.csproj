@@ -195,8 +195,6 @@
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv13Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv12Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv11Validator.cs" />
-    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv10Validator.cs" />
-    <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv02Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv01Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv152Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv153Validator.cs" />
