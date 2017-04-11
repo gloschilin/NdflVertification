@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Web;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
@@ -19,12 +20,32 @@ namespace NdflVertification.Web.Api.Controllers
             _validator = validator;
         }
 
+        
+
         [HttpGet]
         [Route("~/reports/{actionUserId}/esss/upload")]
         public ActionResult Index(int actionUserId)
         {
             ViewBag.ActionUserId = actionUserId;
             return View();
+        }
+
+        //[AcceptVerbs("OPTIONS")]
+        //public HttpResponseMessage Options()
+        //{
+        //    var resp = new HttpResponseMessage(HttpStatusCode.OK);
+        //    resp.Headers.Add("Access-Control-Allow-Origin", "*");
+        //    resp.Headers.Add("Access-Control-Allow-Methods", "GET,DELETE");
+
+        //    return resp;
+        //}
+        
+
+        [HttpOptions]
+        [Route("~/reports/{actionUserId}/esss/upload")]
+        public ActionResult LoadOptions(int actionUserId, HttpPostedFileBase file)
+        {
+            return Json("ok");
         }
 
         [HttpPost]

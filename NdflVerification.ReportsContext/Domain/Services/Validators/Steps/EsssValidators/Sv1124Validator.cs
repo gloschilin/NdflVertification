@@ -9,14 +9,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         {
         }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv1194Validator;
+        protected override CheckReportType CheckReportType => CheckReportType.Sv1124Validator;
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
             foreach (
                 var файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс in entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС)
             {
-                if (!AllEquals(файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОПС.НачислСВ.СумВсегоПосл3М,
+                if (!AllEquals(файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОМС.НачислСВ.СумВсегоПосл3М,
                     файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОМС.НачислСВ.Сум1Посл3М
                     + файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОМС.НачислСВ.Сум2Посл3М
                     + файлДокументРасчетСвОбязПлатСвРасчСвОпсОмс.РасчСВ_ОМС.НачислСВ.Сум3Посл3М))

@@ -256,6 +256,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         Sv106Validator,
         Sv19Validator,
         Sv18Validator,
-        Sv17Validator
+        Sv17Validator,
+        Sv1124Validator
     }
 }

@@ -55,6 +55,11 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
 
         protected static bool AllEquals<T>(params T[] paramseters)
         {
+            if (paramseters.All(e => e == null))
+            {
+                return true;
+            }
+
             var first = paramseters.First();
             var result = paramseters.All(e => e != null && e.Equals(first));
             return result;
