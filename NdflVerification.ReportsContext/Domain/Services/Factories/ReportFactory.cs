@@ -1,17 +1,61 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Factories
 {
-    public class ReportFactory<TReport>: IReportFactory<TReport>
+
+    public class EsssReprotFactory: ReportFactory<XsdImplement.Esss.Файл>
+    {
+        public EsssReprotFactory(IXmlReportBuilder<XsdImplement.Esss.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override bool Allow(XDocument xmlDocument)
+        {
+            return xmlDocument.Descendants().Any(e => e.Name == "РасчетСВ");
+        }
+    }
+
+    public class Ndfl6ReprotFactory : ReportFactory<XsdImplement.Six.Файл>
+    {
+        public Ndfl6ReprotFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override bool Allow(XDocument xmlDocument)
+        {
+            return xmlDocument.Descendants().Any(e => e.Name == "НДФЛ6");
+        }
+    }
+
+    public abstract class ReportFactory<TReport>: IReportFactory<TReport>
         where TReport: class
     {
         private readonly IXmlReportBuilder<TReport> _xmlReportBuilder;
-        public ReportFactory(IXmlReportBuilder<TReport> xmlReportBuilder)
+
+        protected ReportFactory(IXmlReportBuilder<TReport> xmlReportBuilder)
         {
             _xmlReportBuilder = xmlReportBuilder;
+        }
+
+        public abstract bool Allow(XDocument xmlDocument);
+        
+        public bool Allow(string pathToFile)
+        {
+            if (!File.Exists(pathToFile))
+            {
+                throw new FileNotFoundException(
+                    $"Загруженный файл запрошенного отчета не найден {pathToFile}", pathToFile);
+            }
+
+            var fileContent = File.ReadAllText(pathToFile, GetEncoding());
+
+            var xmlDocumnet = XDocument.Parse(fileContent);
+
+            return Allow(xmlDocumnet);
         }
 
         public TReport ReadFromStream(Stream stream)

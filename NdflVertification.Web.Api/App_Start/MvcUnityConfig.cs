@@ -1,6 +1,6 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using NdflVerification.ReportsContext;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
 using NdflVerification.Texts;
@@ -42,6 +42,10 @@ namespace NdflVertification.Web.Api.App_Start
             IocInstaller.Install(container);
             TextsInstaller.Install(container);
             container.RegisterType<IValidationResultHandler, WebValidationResultHandler>();
+
+            container.RegisterType<IEnumerable<IFileUploader>, IFileUploader[]>();
+            container.RegisterType<IFileUploader, EsssUploader>("EsssUploader");
+            container.RegisterType<IFileUploader, Ndfl6Uploader>("Ndfl6Uploader");
         }
     }
 }

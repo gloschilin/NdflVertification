@@ -3,6 +3,8 @@ using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssValidators
 {
+    
+
     public class Sv1255Validator : BaseReportStepValidator<Файл>
     {
         public Sv1255Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)

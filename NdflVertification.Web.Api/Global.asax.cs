@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NdflVertification.Web.Api.Controllers;
 
 namespace NdflVertification.Web.Api
 {
@@ -12,7 +13,7 @@ namespace NdflVertification.Web.Api
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            
+            ModelBinders.Binders[typeof(UploadedFileInfo[])] = new UploadedFileInfoArrayBinder();
         }
     }
 }

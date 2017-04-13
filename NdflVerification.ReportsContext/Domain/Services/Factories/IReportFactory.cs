@@ -9,6 +9,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
     /// <typeparam name="TReport"></typeparam>
     public interface IReportFactory<TReport>
     {
+        bool Allow(XDocument xmlDocument);
+
+        bool Allow(string pathToFile);
+
         /// <summary>
         /// Получение отчета из потока
         /// </summary>

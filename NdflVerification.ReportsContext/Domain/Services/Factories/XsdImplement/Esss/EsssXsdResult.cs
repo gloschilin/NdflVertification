@@ -100,21 +100,21 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументСвНП СвНП
         {
-            get { return this.свНПField; }
+            get { return this.свНПField ?? new ФайлДокументСвНП(); }
             set { this.свНПField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументПодписант Подписант
         {
-            get { return this.подписантField; }
+            get { return this.подписантField ?? new ФайлДокументПодписант(); }
             set { this.подписантField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВ РасчетСВ
         {
-            get { return this.расчетСВField; }
+            get { return this.расчетСВField ?? new ФайлДокументРасчетСВ(); }
             set { this.расчетСВField = value; }
         }
 
@@ -434,42 +434,42 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public РасхВыпл1Тип Всего
         {
-            get { return this.всегоField; }
+            get { return this.всегоField ?? new РасхВыпл1Тип(); }
             set { this.всегоField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосВрНетр
         {
-            get { return this.посВрНетрField; }
+            get { return this.посВрНетрField ?? new РасхВыпл2Тип(); }
             set { this.посВрНетрField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосБеремРод
         {
-            get { return this.посБеремРодField; }
+            get { return this.посБеремРодField ?? new РасхВыпл2Тип(); }
             set { this.посБеремРодField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб
         {
-            get { return this.ежПосУходРебField; }
+            get { return this.ежПосУходРебField ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРебField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб1
         {
-            get { return this.ежПосУходРеб1Field; }
+            get { return this.ежПосУходРеб1Field ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРеб1Field = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб2
         {
-            get { return this.ежПосУходРеб2Field; }
+            get { return this.ежПосУходРеб2Field ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРеб2Field = value; }
         }
     }
@@ -963,7 +963,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
@@ -999,14 +999,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументСвНПНПФЛСвНПФЛУдЛичнФЛ УдЛичнФЛ
         {
-            get { return this.удЛичнФЛField; }
+            get { return this.удЛичнФЛField ?? new ФайлДокументСвНПНПФЛСвНПФЛУдЛичнФЛ(); }
             set { this.удЛичнФЛField = value; }
         }
 
         /// <remarks/>
         public АдрРФТип АдрМЖРФ
         {
-            get { return this.адрМЖРФField; }
+            get { return this.адрМЖРФField ?? new АдрРФТип(); }
             set { this.адрМЖРФField = value; }
         }
 
@@ -1105,7 +1105,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументСвНПНПЮЛСвРеоргЮЛ СвРеоргЮЛ
         {
-            get { return this.свРеоргЮЛField; }
+            get { return this.свРеоргЮЛField ?? new ФайлДокументСвНПНПЮЛСвРеоргЮЛ(); }
             set { this.свРеоргЮЛField = value; }
         }
 
@@ -1193,14 +1193,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументПодписантСвПред СвПред
         {
-            get { return this.свПредField; }
+            get { return this.свПредField ?? new ФайлДокументПодписантСвПред(); }
             set { this.свПредField = value; }
         }
 
@@ -1263,14 +1263,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВ ОбязПлатСВ
         {
-            get { return this.обязПлатСВField; }
+            get { return this.обязПлатСВField ?? new ФайлДокументРасчетСВОбязПлатСВ(); }
             set { this.обязПлатСВField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВ_КФХ ОбязПлатСВ_КФХ
         {
-            get { return this.обязПлатСВ_КФХField; }
+            get { return this.обязПлатСВ_КФХField ?? new ФайлДокументРасчетСВОбязПлатСВ_КФХ(); }
             set { this.обязПлатСВ_КФХField = value; }
         }
 
@@ -1278,7 +1278,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("ПерсСвСтрахЛиц")]
         public ФайлДокументРасчетСВПерсСвСтрахЛиц[] ПерсСвСтрахЛиц
         {
-            get { return this.персСвСтрахЛицField; }
+            get { return this.персСвСтрахЛицField ?? new ФайлДокументРасчетСВПерсСвСтрахЛиц[0]; }
             set { this.персСвСтрахЛицField = value; }
         }
     }
@@ -1327,14 +1327,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СВУплПерТип УплПерОПС
         {
-            get { return this.уплПерОПСField; }
+            get { return this.уплПерОПСField ?? new СВУплПерТип(); }
             set { this.уплПерОПСField = value; }
         }
 
         /// <remarks/>
         public СВУплПерТип УплПерОМС
         {
-            get { return this.уплПерОМСField; }
+            get { return this.уплПерОМСField ?? new СВУплПерТип(); }
             set { this.уплПерОМСField = value; }
         }
 
@@ -1342,7 +1342,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("УплПерОПСДоп")]
         public СВУплПерТип[] УплПерОПСДоп
         {
-            get { return this.уплПерОПСДопField; }
+            get { return this.уплПерОПСДопField ?? new СВУплПерТип[0]; }
             set { this.уплПерОПСДопField = value; }
         }
 
@@ -1350,14 +1350,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("УплПерДСО")]
         public СВУплПерТип[] УплПерДСО
         {
-            get { return this.уплПерДСОField; }
+            get { return this.уплПерДСОField ?? new СВУплПерТип[0]; }
             set { this.уплПерДСОField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВУплПревОСС УплПревОСС
         {
-            get { return this.уплПревОССField; }
+            get { return this.уплПревОССField ?? new ФайлДокументРасчетСВОбязПлатСВУплПревОСС(); }
             set { this.уплПревОССField = value; }
         }
 
@@ -1365,7 +1365,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("РасчСВ_ОПС_ОМС")]
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМС[] РасчСВ_ОПС_ОМС
         {
-            get { return this.расчСВ_ОПС_ОМСField; }
+            get { return this.расчСВ_ОПС_ОМСField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМС[0]; }
             set { this.расчСВ_ОПС_ОМСField = value; }
         }
 
@@ -1373,21 +1373,21 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("РасчСВ_ОСС.ВНМ")]
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОССВНМ РасчСВ_ОССВНМ
         {
-            get { return this.расчСВ_ОССВНМField; }
+            get { return this.расчСВ_ОССВНМField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОССВНМ(); }
             set { this.расчСВ_ОССВНМField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасхОССЗак РасхОССЗак
         {
-            get { return this.расхОССЗакField; }
+            get { return this.расхОССЗакField ?? new ФайлДокументРасчетСВОбязПлатСВРасхОССЗак(); }
             set { this.расхОССЗакField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВВыплФинФБ ВыплФинФБ
         {
-            get { return this.выплФинФБField; }
+            get { return this.выплФинФБField ?? new ФайлДокументРасчетСВОбязПлатСВВыплФинФБ(); }
             set { this.выплФинФБField = value; }
         }
 
@@ -1395,7 +1395,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("ПравТариф3.1.427")]
         public ФайлДокументРасчетСВОбязПлатСВПравТариф31427 ПравТариф31427
         {
-            get { return this.правТариф31427Field; }
+            get { return this.правТариф31427Field ?? new ФайлДокументРасчетСВОбязПлатСВПравТариф31427(); }
             set { this.правТариф31427Field = value; }
         }
 
@@ -1403,7 +1403,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("ПравТариф5.1.427")]
         public ФайлДокументРасчетСВОбязПлатСВПравТариф51427 ПравТариф51427
         {
-            get { return this.правТариф51427Field; }
+            get { return this.правТариф51427Field ?? new ФайлДокументРасчетСВОбязПлатСВПравТариф51427(); }
             set { this.правТариф51427Field = value; }
         }
 
@@ -1411,7 +1411,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("ПравТариф7.1.427")]
         public ФайлДокументРасчетСВОбязПлатСВПравТариф71427 ПравТариф71427
         {
-            get { return this.правТариф71427Field; }
+            get { return this.правТариф71427Field ?? new ФайлДокументРасчетСВОбязПлатСВПравТариф71427(); }
             set { this.правТариф71427Field = value; }
         }
 
@@ -1419,7 +1419,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвПримТариф9.1.427")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф91427 СвПримТариф91427
         {
-            get { return this.свПримТариф91427Field; }
+            get { return this.свПримТариф91427Field ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф91427(); }
             set { this.свПримТариф91427Field = value; }
         }
 
@@ -1427,7 +1427,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвПримТариф2.2.425")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф22425 СвПримТариф22425
         {
-            get { return this.свПримТариф22425Field; }
+            get { return this.свПримТариф22425Field ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф22425(); }
             set { this.свПримТариф22425Field = value; }
         }
 
@@ -1435,7 +1435,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвПримТариф1.3.422")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422 СвПримТариф13422
         {
-            get { return this.свПримТариф13422Field; }
+            get { return this.свПримТариф13422Field ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422(); }
             set { this.свПримТариф13422Field = value; }
         }
 
@@ -1466,14 +1466,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВУплПревОССУплПерОСС УплПерОСС
         {
-            get { return this.уплПерОССField; }
+            get { return this.уплПерОССField ?? new ФайлДокументРасчетСВОбязПлатСВУплПревОССУплПерОСС(); }
             set { this.уплПерОССField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВУплПревОССПревРасхОСС ПревРасхОСС
         {
-            get { return this.превРасхОССField; }
+            get { return this.превРасхОССField ?? new ФайлДокументРасчетСВОбязПлатСВУплПревОССПревРасхОСС(); }
             set { this.превРасхОССField = value; }
         }
 
@@ -1688,21 +1688,21 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС РасчСВ_ОПС
         {
-            get { return this.расчСВ_ОПСField; }
+            get { return this.расчСВ_ОПСField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС(); }
             set { this.расчСВ_ОПСField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОМС РасчСВ_ОМС
         {
-            get { return this.расчСВ_ОМСField; }
+            get { return this.расчСВ_ОМСField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОМС(); }
             set { this.расчСВ_ОМСField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428 РасчСВ_ОПС428
         {
-            get { return this.расчСВ_ОПС428Field; }
+            get { return this.расчСВ_ОПС428Field ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428(); }
             set { this.расчСВ_ОПС428Field = value; }
         }
 
@@ -1710,7 +1710,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("РасчСВ_ДСО")]
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ДСО[] РасчСВ_ДСО
         {
-            get { return this.расчСВ_ДСОField; }
+            get { return this.расчСВ_ДСОField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ДСО[0]; }
             set { this.расчСВ_ДСОField = value; }
         }
 
@@ -1755,70 +1755,70 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолСтрахЛицВс
         {
-            get { return this.колСтрахЛицВсField; }
+            get { return this.колСтрахЛицВсField ?? new КолЛицТип(); }
             set { this.колСтрахЛицВсField = value; }
         }
 
         /// <remarks/>
         public КолЛицТип КолЛицНачСВВс
         {
-            get { return this.колЛицНачСВВсField; }
+            get { return this.колЛицНачСВВсField ?? new КолЛицТип(); }
             set { this.колЛицНачСВВсField = value; }
         }
 
         /// <remarks/>
         public КолЛицТип ПревБазОПС
         {
-            get { return this.превБазОПСField; }
+            get { return this.превБазОПСField ?? new КолЛицТип(); }
             set { this.превБазОПСField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВ
         {
-            get { return this.базНачислСВField; }
+            get { return this.базНачислСВField ?? new СвСум1Тип(); }
             set { this.базНачислСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазПревышОПС
         {
-            get { return this.базПревышОПСField; }
+            get { return this.базПревышОПСField ?? new СвСум1Тип(); }
             set { this.базПревышОПСField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВ
         {
-            get { return this.начислСВField; }
+            get { return this.начислСВField ?? new СвСум1Тип(); }
             set { this.начислСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВНеПрев
         {
-            get { return this.начислСВНеПревField; }
+            get { return this.начислСВНеПревField ?? new СвСум1Тип(); }
             set { this.начислСВНеПревField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВПрев
         {
-            get { return this.начислСВПревField; }
+            get { return this.начислСВПревField ?? new СвСум1Тип(); }
             set { this.начислСВПревField = value; }
         }
     }
@@ -1847,42 +1847,42 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолСтрахЛицВс
         {
-            get { return this.колСтрахЛицВсField; }
+            get { return this.колСтрахЛицВсField ?? new КолЛицТип(); }
             set { this.колСтрахЛицВсField = value; }
         }
 
         /// <remarks/>
         public КолЛицТип КолЛицНачСВВс
         {
-            get { return this.колЛицНачСВВсField; }
+            get { return this.колЛицНачСВВсField ?? new КолЛицТип(); }
             set { this.колЛицНачСВВсField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВ
         {
-            get { return this.базНачислСВField; }
+            get { return this.базНачислСВField ?? new СвСум1Тип(); }
             set { this.базНачислСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВ
         {
-            get { return this.начислСВField; }
+            get { return this.начислСВField ?? new СвСум1Тип(); }
             set { this.начислСВField = value; }
         }
     }
@@ -1904,7 +1904,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("РасчСВ_428.1-2")]
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428РасчСВ_42812[] РасчСВ_42812
         {
-            get { return this.расчСВ_42812Field; }
+            get { return this.расчСВ_42812Field ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428РасчСВ_42812[0]; }
             set { this.расчСВ_42812Field = value; }
         }
 
@@ -1912,7 +1912,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("РасчСВ_428.3")]
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428РасчСВ_4283[] РасчСВ_4283
         {
-            get { return this.расчСВ_4283Field; }
+            get { return this.расчСВ_4283Field ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОПС_ОМСРасчСВ_ОПС428РасчСВ_4283[0]; }
             set { this.расчСВ_4283Field = value; }
         }
     }
@@ -1941,35 +1941,35 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолЛицНачСВ
         {
-            get { return this.колЛицНачСВField; }
+            get { return this.колЛицНачСВField ?? new КолЛицТип(); }
             set { this.колЛицНачСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВДоп
         {
-            get { return this.базНачислСВДопField; }
+            get { return this.базНачислСВДопField ?? new СвСум1Тип(); }
             set { this.базНачислСВДопField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВДоп
         {
-            get { return this.начислСВДопField; }
+            get { return this.начислСВДопField ?? new СвСум1Тип(); }
             set { this.начислСВДопField = value; }
         }
 
@@ -2012,35 +2012,35 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолЛицНачСВ
         {
-            get { return this.колЛицНачСВField; }
+            get { return this.колЛицНачСВField ?? new КолЛицТип(); }
             set { this.колЛицНачСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВДоп
         {
-            get { return this.базНачислСВДопField; }
+            get { return this.базНачислСВДопField ?? new СвСум1Тип(); }
             set { this.базНачислСВДопField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВДоп
         {
-            get { return this.начислСВДопField; }
+            get { return this.начислСВДопField ?? new СвСум1Тип(); }
             set { this.начислСВДопField = value; }
         }
 
@@ -2093,35 +2093,35 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолЛицНачСВ
         {
-            get { return this.колЛицНачСВField; }
+            get { return this.колЛицНачСВField ?? new КолЛицТип(); }
             set { this.колЛицНачСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВДСО
         {
-            get { return this.базНачислСВДСОField; }
+            get { return this.базНачислСВДСОField ?? new СвСум1Тип(); }
             set { this.базНачислСВДСОField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВДСО
         {
-            get { return this.начислСВДСОField; }
+            get { return this.начислСВДСОField ?? new СвСум1Тип(); }
             set { this.начислСВДСОField = value; }
         }
 
@@ -2175,91 +2175,91 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public КолЛицТип КолСтрахЛицВс
         {
-            get { return this.колСтрахЛицВсField; }
+            get { return this.колСтрахЛицВсField ?? new КолЛицТип(); }
             set { this.колСтрахЛицВсField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВыплНачислФЛ
         {
-            get { return this.выплНачислФЛField; }
+            get { return this.выплНачислФЛField ?? new СвСум1Тип(); }
             set { this.выплНачислФЛField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НеОбложенСВ
         {
-            get { return this.неОбложенСВField; }
+            get { return this.неОбложенСВField ?? new СвСум1Тип(); }
             set { this.неОбложенСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазПревышСВ
         {
-            get { return this.базПревышСВField; }
+            get { return this.базПревышСВField ?? new СвСум1Тип(); }
             set { this.базПревышСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачислСВ
         {
-            get { return this.базНачислСВField; }
+            get { return this.базНачислСВField ?? new СвСум1Тип(); }
             set { this.базНачислСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачСВФарм
         {
-            get { return this.базНачСВФармField; }
+            get { return this.базНачСВФармField ?? new СвСум1Тип(); }
             set { this.базНачСВФармField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачСВЧлЭС
         {
-            get { return this.базНачСВЧлЭСField; }
+            get { return this.базНачСВЧлЭСField ?? new СвСум1Тип(); }
             set { this.базНачСВЧлЭСField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачСВПат
         {
-            get { return this.базНачСВПатField; }
+            get { return this.базНачСВПатField ?? new СвСум1Тип(); }
             set { this.базНачСВПатField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип БазНачСВИнЛиц
         {
-            get { return this.базНачСВИнЛицField; }
+            get { return this.базНачСВИнЛицField ?? new СвСум1Тип(); }
             set { this.базНачСВИнЛицField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип НачислСВ
         {
-            get { return this.начислСВField; }
+            get { return this.начислСВField ?? new СвСум1Тип(); }
             set { this.начислСВField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ПроизвРасхСО
         {
-            get { return this.произвРасхСОField; }
+            get { return this.произвРасхСОField ?? new СвСум1Тип(); }
             set { this.произвРасхСОField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип ВозмРасхСО
         {
-            get { return this.возмРасхСОField; }
+            get { return this.возмРасхСОField ?? new СвСум1Тип(); }
             set { this.возмРасхСОField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОССВНМУплСВПрев УплСВПрев
         {
-            get { return this.уплСВПревField; }
+            get { return this.уплСВПревField ?? new ФайлДокументРасчетСВОбязПлатСВРасчСВ_ОССВНМУплСВПрев(); }
             set { this.уплСВПревField = value; }
         }
 
@@ -2294,35 +2294,35 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public УплСВПревТип УплВсегоПер
         {
-            get { return this.уплВсегоПерField; }
+            get { return this.уплВсегоПерField ?? new УплСВПревТип(); }
             set { this.уплВсегоПерField = value; }
         }
 
         /// <remarks/>
         public УплСВПревТип УплВсегоПосл3М
         {
-            get { return this.уплВсегоПосл3МField; }
+            get { return this.уплВсегоПосл3МField ?? new УплСВПревТип(); }
             set { this.уплВсегоПосл3МField = value; }
         }
 
         /// <remarks/>
         public УплСВПревТип Упл1Посл3М
         {
-            get { return this.упл1Посл3МField; }
+            get { return this.упл1Посл3МField ?? new УплСВПревТип(); }
             set { this.упл1Посл3МField = value; }
         }
 
         /// <remarks/>
         public УплСВПревТип Упл2Посл3М
         {
-            get { return this.упл2Посл3МField; }
+            get { return this.упл2Посл3МField ?? new УплСВПревТип(); }
             set { this.упл2Посл3МField = value; }
         }
 
         /// <remarks/>
         public УплСВПревТип Упл3Посл3М
         {
-            get { return this.упл3Посл3МField; }
+            get { return this.упл3Посл3МField ?? new УплСВПревТип(); }
             set { this.упл3Посл3МField = value; }
         }
     }
@@ -2372,112 +2372,112 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public РасхОСС1Тип ПосВрНетр
         {
-            get { return this.посВрНетрField; }
+            get { return this.посВрНетрField ?? new РасхОСС1Тип(); }
             set { this.посВрНетрField = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип ПосВрНетрСов
         {
-            get { return this.посВрНетрСовField; }
+            get { return this.посВрНетрСовField ?? new РасхОСС1Тип(); }
             set { this.посВрНетрСовField = value; }
         }
 
         /// <remarks/>
         public РасхОСС2Тип ПосВрНетрИн
         {
-            get { return this.посВрНетрИнField; }
+            get { return this.посВрНетрИнField ?? new РасхОСС2Тип(); }
             set { this.посВрНетрИнField = value; }
         }
 
         /// <remarks/>
         public РасхОСС2Тип ПосВрНетрИнСов
         {
-            get { return this.посВрНетрИнСовField; }
+            get { return this.посВрНетрИнСовField ?? new РасхОСС2Тип(); }
             set { this.посВрНетрИнСовField = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип БеремРод
         {
-            get { return this.беремРодField; }
+            get { return this.беремРодField ?? new РасхОСС1Тип(); }
             set { this.беремРодField = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип БеремРодСов
         {
-            get { return this.беремРодСовField; }
+            get { return this.беремРодСовField?? new РасхОСС1Тип(); }
             set { this.беремРодСовField = value; }
         }
 
         /// <remarks/>
         public РасхОСС3Тип ЕдПосРанБерем
         {
-            get { return this.едПосРанБеремField; }
+            get { return this.едПосРанБеремField ?? new РасхОСС3Тип(); }
             set { this.едПосРанБеремField = value; }
         }
 
         /// <remarks/>
         public РасхОСС3Тип ЕдПосРожд
         {
-            get { return this.едПосРождField; }
+            get { return this.едПосРождField ?? new РасхОСС3Тип(); }
             set { this.едПосРождField = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип ЕжПосУходРеб
         {
-            get { return this.ежПосУходРебField; }
+            get { return this.ежПосУходРебField ?? new РасхОСС1Тип(); }
             set { this.ежПосУходРебField = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип ЕжПосУходРеб1
         {
-            get { return this.ежПосУходРеб1Field; }
+            get { return this.ежПосУходРеб1Field ?? new РасхОСС1Тип(); }
             set { this.ежПосУходРеб1Field = value; }
         }
 
         /// <remarks/>
         public РасхОСС1Тип ЕжПосУходРеб2
         {
-            get { return this.ежПосУходРеб2Field; }
+            get { return this.ежПосУходРеб2Field ?? new РасхОСС1Тип(); }
             set { this.ежПосУходРеб2Field = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВРасхОССЗакОплДопВыхИнв ОплДопВыхИнв
         {
-            get { return this.оплДопВыхИнвField; }
+            get { return this.оплДопВыхИнвField ?? new ФайлДокументРасчетСВОбязПлатСВРасхОССЗакОплДопВыхИнв(); }
             set { this.оплДопВыхИнвField = value; }
         }
 
         /// <remarks/>
         public РасхОСС4Тип СВДопУходИнв
         {
-            get { return this.сВДопУходИнвField; }
+            get { return this.сВДопУходИнвField ?? new РасхОСС4Тип(); }
             set { this.сВДопУходИнвField = value; }
         }
 
         /// <remarks/>
         public РасхОСС2Тип СоцПосПогреб
         {
-            get { return this.соцПосПогребField; }
+            get { return this.соцПосПогребField ?? new РасхОСС2Тип(); }
             set { this.соцПосПогребField = value; }
         }
 
         /// <remarks/>
         public РасхОСС4Тип Итого
         {
-            get { return this.итогоField; }
+            get { return this.итогоField ?? new РасхОСС4Тип(); }
             set { this.итогоField = value; }
         }
 
         /// <remarks/>
         public РасхОСС4Тип НачНевыплПос
         {
-            get { return this.начНевыплПосField; }
+            get { return this.начНевыплПосField ?? new РасхОСС4Тип(); }
             set { this.начНевыплПосField = value; }
         }
     }
@@ -2556,42 +2556,42 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ВыпФинФБТип ЧернобАЭС
         {
-            get { return this.чернобАЭСField; }
+            get { return this.чернобАЭСField ?? new ВыпФинФБТип(); }
             set { this.чернобАЭСField = value; }
         }
 
         /// <remarks/>
         public ВыпФинФБТип ПОМаяк
         {
-            get { return this.пОМаякField; }
+            get { return this.пОМаякField ?? new ВыпФинФБТип(); }
             set { this.пОМаякField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВВыплФинФБСемипалатПолигон СемипалатПолигон
         {
-            get { return this.семипалатПолигонField; }
+            get { return this.семипалатПолигонField ?? new ФайлДокументРасчетСВОбязПлатСВВыплФинФБСемипалатПолигон(); }
             set { this.семипалатПолигонField = value; }
         }
 
         /// <remarks/>
         public ВыпФинФБТип ПодрОсобРиск
         {
-            get { return this.подрОсобРискField; }
+            get { return this.подрОсобРискField ?? new ВыпФинФБТип(); }
             set { this.подрОсобРискField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВВыплФинФБДопФЗ255 ДопФЗ255
         {
-            get { return this.допФЗ255Field; }
+            get { return this.допФЗ255Field ?? new ФайлДокументРасчетСВОбязПлатСВВыплФинФБДопФЗ255(); }
             set { this.допФЗ255Field = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВВыплФинФБВсего Всего
         {
-            get { return this.всегоField; }
+            get { return this.всегоField ?? new ФайлДокументРасчетСВОбязПлатСВВыплФинФБВсего(); }
             set { this.всегоField = value; }
         }
     }
@@ -2612,14 +2612,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public РасхВыпл1Тип Всего
         {
-            get { return this.всегоField; }
+            get { return this.всегоField ?? new РасхВыпл1Тип(); }
             set { this.всегоField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосВрНетр
         {
-            get { return this.посВрНетрField; }
+            get { return this.посВрНетрField ?? new РасхВыпл2Тип(); }
             set { this.посВрНетрField = value; }
         }
     }
@@ -2642,21 +2642,21 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public РасхВыпл1Тип Всего
         {
-            get { return this.всегоField; }
+            get { return this.всегоField ?? new РасхВыпл1Тип(); }
             set { this.всегоField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосВрНетр
         {
-            get { return this.посВрНетрField; }
+            get { return this.посВрНетрField ?? new РасхВыпл2Тип(); }
             set { this.посВрНетрField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосБеремРод
         {
-            get { return this.посБеремРодField; }
+            get { return this.посБеремРодField ?? new РасхВыпл2Тип(); }
             set { this.посБеремРодField = value; }
         }
     }
@@ -2691,49 +2691,49 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public РасхВыпл1Тип Всего
         {
-            get { return this.всегоField; }
+            get { return this.всегоField ?? new РасхВыпл1Тип(); }
             set { this.всегоField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосВрНетр
         {
-            get { return this.посВрНетрField; }
+            get { return this.посВрНетрField ?? new РасхВыпл2Тип(); }
             set { this.посВрНетрField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ПосБеремРод
         {
-            get { return this.посБеремРодField; }
+            get { return this.посБеремРодField ?? new РасхВыпл2Тип(); }
             set { this.посБеремРодField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб
         {
-            get { return this.ежПосУходРебField; }
+            get { return this.ежПосУходРебField ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРебField = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб1
         {
-            get { return this.ежПосУходРеб1Field; }
+            get { return this.ежПосУходРеб1Field ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРеб1Field = value; }
         }
 
         /// <remarks/>
         public РасхВыпл2Тип ЕжПосУходРеб2
         {
-            get { return this.ежПосУходРеб2Field; }
+            get { return this.ежПосУходРеб2Field ?? new РасхВыпл2Тип(); }
             set { this.ежПосУходРеб2Field = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВВыплФинФБВсегоОплДопВыхИнв ОплДопВыхИнв
         {
-            get { return this.оплДопВыхИнвField; }
+            get { return this.оплДопВыхИнвField ?? new ФайлДокументРасчетСВОбязПлатСВВыплФинФБВсегоОплДопВыхИнв(); }
             set { this.оплДопВыхИнвField = value; }
         }
 
@@ -2816,7 +2816,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВОбязПлатСВПравТариф31427СвРеестрАкОрг СвРеестрАкОрг
         {
-            get { return this.свРеестрАкОргField; }
+            get { return this.свРеестрАкОргField ?? new ФайлДокументРасчетСВОбязПлатСВПравТариф31427СвРеестрАкОрг(); }
             set { this.свРеестрАкОргField = value; }
         }
 
@@ -3099,7 +3099,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СвСум1Тип ВыплатИт
         {
-            get { return this.выплатИтField; }
+            get { return this.выплатИтField ?? new СвСум1Тип(); }
             set { this.выплатИтField = value; }
         }
 
@@ -3107,7 +3107,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СведПатент")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф91427СведПатент[] СведПатент
         {
-            get { return this.сведПатентField; }
+            get { return this.сведПатентField ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф91427СведПатент[0]; }
             set { this.сведПатентField = value; }
         }
     }
@@ -3134,7 +3134,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СвСум1Тип СумВыплат
         {
-            get { return this.сумВыплатField; }
+            get { return this.сумВыплатField ?? new СвСум1Тип(); }
             set { this.сумВыплатField = value; }
         }
 
@@ -3187,7 +3187,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СвСум1Тип ВыплатИт
         {
-            get { return this.выплатИтField; }
+            get { return this.выплатИтField ?? new СвСум1Тип(); }
             set { this.выплатИтField = value; }
         }
 
@@ -3195,7 +3195,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвИноГражд")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф22425СвИноГражд[] СвИноГражд
         {
-            get { return this.свИноГраждField; }
+            get { return this.свИноГраждField ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф22425СвИноГражд[0]; }
             set { this.свИноГраждField = value; }
         }
     }
@@ -3222,14 +3222,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
         /// <remarks/>
         public СвСум1Тип СумВыплат
         {
-            get { return this.сумВыплатField; }
+            get { return this.сумВыплатField ?? new СвСум1Тип(); }
             set { this.сумВыплатField = value; }
         }
 
@@ -3274,7 +3274,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СвСум1Тип ВыплатИт
         {
-            get { return this.выплатИтField; }
+            get { return this.выплатИтField ?? new СвСум1Тип(); }
             set { this.выплатИтField = value; }
         }
 
@@ -3282,7 +3282,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СведОбуч")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422СведОбуч[] СведОбуч
         {
-            get { return this.сведОбучField; }
+            get { return this.сведОбучField ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422СведОбуч[0]; }
             set { this.сведОбучField = value; }
         }
     }
@@ -3311,7 +3311,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
@@ -3321,7 +3321,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         //[System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
         public СправТип Item
         {
-            get { return this.itemField; }
+            get { return this.itemField ?? new СправТип(); }
             set { this.itemField = value; }
         }
 
@@ -3336,7 +3336,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СвСум1Тип СумВыплат
         {
-            get { return this.сумВыплатField; }
+            get { return this.сумВыплатField ?? new СвСум1Тип(); }
             set { this.сумВыплатField = value; }
         }
 
@@ -3344,7 +3344,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвРеестрМДО")]
         public ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422СведОбучСвРеестрМДО[] СвРеестрМДО
         {
-            get { return this.свРеестрМДОField; }
+            get { return this.свРеестрМДОField ?? new ФайлДокументРасчетСВОбязПлатСВСвПримТариф13422СведОбучСвРеестрМДО[0]; }
             set { this.свРеестрМДОField = value; }
         }
 
@@ -3419,14 +3419,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public СумСВУплТип УплПерОПС
         {
-            get { return this.уплПерОПСField; }
+            get { return this.уплПерОПСField ?? new СумСВУплТип(); }
             set { this.уплПерОПСField = value; }
         }
 
         /// <remarks/>
         public СумСВУплТип УплПерОМС
         {
-            get { return this.уплПерОМСField; }
+            get { return this.уплПерОМСField ?? new СумСВУплТип(); }
             set { this.уплПерОМСField = value; }
         }
 
@@ -3434,7 +3434,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlArrayItemAttribute("СведЧлКФХ", IsNullable = false)]
         public ФайлДокументРасчетСВОбязПлатСВ_КФХСведЧлКФХ[] РасчСВ_КФХ
         {
-            get { return this.расчСВ_КФХField; }
+            get { return this.расчСВ_КФХField ?? new ФайлДокументРасчетСВОбязПлатСВ_КФХСведЧлКФХ[0]; }
             set { this.расчСВ_КФХField = value; }
         }
 
@@ -3475,7 +3475,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
@@ -3562,14 +3562,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВПерсСвСтрахЛицДанФЛПолуч ДанФЛПолуч
         {
-            get { return this.данФЛПолучField; }
+            get { return this.данФЛПолучField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицДанФЛПолуч(); }
             set { this.данФЛПолучField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПС СвВыплСВОПС
         {
-            get { return this.свВыплСВОПСField; }
+            get { return this.свВыплСВОПСField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПС(); }
             set { this.свВыплСВОПСField = value; }
         }
 
@@ -3648,7 +3648,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФИОТип ФИО
         {
-            get { return this.фИОField; }
+            get { return this.фИОField ?? new ФИОТип(); }
             set { this.фИОField = value; }
         }
 
@@ -3751,14 +3751,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         /// <remarks/>
         public ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыпл СвВыпл
         {
-            get { return this.свВыплField; }
+            get { return this.свВыплField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыпл(); }
             set { this.свВыплField = value; }
         }
 
         /// <remarks/>
         public ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДоп ВыплСВДоп
         {
-            get { return this.выплСВДопField; }
+            get { return this.выплСВДопField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДоп(); }
             set { this.выплСВДопField = value; }
         }
     }
@@ -3786,7 +3786,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("СвВыплМК")]
         public ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыплСвВыплМК[] СвВыплМК
         {
-            get { return this.свВыплМКField; }
+            get { return this.свВыплМКField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПССвВыплСвВыплМК[0]; }
             set { this.свВыплМКField = value; }
         }
 
@@ -3944,7 +3944,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement
         [System.Xml.Serialization.XmlElementAttribute("ВыплСВДопМТ")]
         public ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДопВыплСВДопМТ[] ВыплСВДопМТ
         {
-            get { return this.выплСВДопМТField; }
+            get { return this.выплСВДопМТField ?? new ФайлДокументРасчетСВПерсСвСтрахЛицСвВыплСВОПСВыплСВДопВыплСВДопМТ[0]; }
             set { this.выплСВДопМТField = value; }
         }
 

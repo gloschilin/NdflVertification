@@ -8,7 +8,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
     {
         public static int ToInt(this string value)
         {
-            return Convert.ToInt32(value);
+            if (value == null)
+            {
+                return 0;
+            }
+
+            value = value.Replace(",", ".");
+
+            var ci = CultureInfo.InvariantCulture.Clone() as CultureInfo;
+            ci.NumberFormat.NumberDecimalSeparator = ".";
+            var number = decimal.Parse(value, ci); // 1.1
+            return (int)Convert.ToDecimal(number);
         }
 
         public static decimal ToDecimal(this string value)

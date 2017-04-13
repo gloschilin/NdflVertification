@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 using NdflVerification.ReportsContext.Domain.Services.Validators;

@@ -1,0 +1,32 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+    <script src="~/Content/jquery.js"></script>
+    <script src="~/Content/jquery.form.js"></script>
+</head>
+<body>
+
+<form method="post" action="/reports/@ViewBag.ActionUserId/upload" enctype="multipart/form-data" id="formid">
+    <input type="file" name="files"/>
+    <input type="file" name="files" />
+    <input type="button" id="btnid" value="Send"/>
+</form>
+    
+<script type="text/javascript">
+
+    $(document).on("click", "#btnid", function(event) {
+        event.preventDefault();
+        var fileOptions = {
+            success: function() {},
+            dataType: "json"
+        }
+        $("#formid").ajaxSubmit(fileOptions);
+    });
+
+</script>
+    
+</body>
+</html>

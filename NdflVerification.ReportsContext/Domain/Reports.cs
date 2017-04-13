@@ -1,24 +1,12 @@
-﻿namespace NdflVerification.ReportsContext.Domain
+﻿
+namespace NdflVerification.ReportsContext.Domain
 {
     /// <summary>
-    /// Отчеты 2 и 6 НДФЛ
+    /// Отчеты 6 НДФЛ и ЕССС
     /// </summary>
     public class Reports
     {
-        public Reports(SixNdfl sixNdfl, TwoNdfl twoNdfl)
-        {
-            SixNdfl = sixNdfl;
-            TwoNdfl = twoNdfl;
-        }
-
-        /// <summary>
-        /// Отчет 6НДФЛ
-        /// </summary>
-        public SixNdfl SixNdfl { get; }
-
-        /// <summary>
-        /// Отчет 2НДФЛ
-        /// </summary>
-        public TwoNdfl TwoNdfl { get; }
+        public Services.Factories.XsdImplement.Esss.Файл Esss { get; set; }
+        public Services.Factories.XsdImplement.Six.Файл Ndfl6 { get; set; }
     }
 }
