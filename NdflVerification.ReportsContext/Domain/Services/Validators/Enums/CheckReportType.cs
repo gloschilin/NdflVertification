@@ -282,6 +282,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         Total23Validator,
         Total24Validator,
         Total25Validator,
-        Total26Validator
+        Total26Validator,
+        Sv015Validator
     }
 }

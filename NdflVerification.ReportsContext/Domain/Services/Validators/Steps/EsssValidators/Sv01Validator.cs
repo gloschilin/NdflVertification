@@ -150,4 +150,25 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
             return sum1 == sum2;
         }
     }
+
+    public class Sv015Validator : BaseReportStepValidator<Файл>
+    {
+        public Sv015Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        {
+        }
+
+        protected override CheckReportType CheckReportType => CheckReportType.Sv015Validator;
+
+        public override bool IsSpecificatiedBy(Файл entity)
+        {
+            if (entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.Сум3Посл3М)
+                != entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(
+                    e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(c => c.Месяц.ToInt() == 3).Sum(c => c.НачислСВ)))
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
 }
