@@ -134,7 +134,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Total
 
             return entity.Ndfl6.Документ.НДФЛ6.ОбобщПоказ.СумСтавка.Sum(e => e.НачислДох)
                    - entity.Ndfl6.Документ.НДФЛ6.ОбобщПоказ.СумСтавка.Sum(e => e.НачислДохДив)
-                   ==
+                   >=
                    entity.Esss.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
                        e => e.РасчСВ_ОПС.ВыплНачислФЛ.СумВсегоПер);
         }

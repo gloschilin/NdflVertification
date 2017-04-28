@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -95,6 +94,41 @@ namespace NdflVertification.Web.Api.Controllers
         {
             var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl);
             uploader.Delete(actionUserId);
+        }
+
+        [HttpOptions]
+        [Route("~/reports/{actionUserId}/esss/delete")]
+        public IHttpActionResult DeleteEsssOptions(int actionUserId)
+        {
+            return Ok();
+        }
+
+        [HttpOptions]
+        [Route("~/reports/{actionUserId}/ndfl-6/delete")]
+        public IHttpActionResult DeleteNdfl6Options(int actionUserId)
+        {
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("~/reports/{actionUserId}/delete")]
+        public void Delete(int actionUserId)
+        {
+            foreach (var fileUploader in _fileUploaders.Where(fileUploader => fileUploader.Exists(actionUserId)))
+            {
+                fileUploader.Delete(actionUserId);
+            }
+        }
+
+        [HttpOptions]
+        [Route("~/reports/{actionUserId}/delete")]
+        public IHttpActionResult DeleteOptions(int actionUserId)
+        {
+            //HttpContext.Current.Response.Headers.Clear();
+            //HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Header;", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+            //HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+            //HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            return Ok();
         }
     }
 }

@@ -30,28 +30,41 @@ namespace NdflVertification.Web.Api.Utils
                 Directory.CreateDirectory(HttpContext.Current.Server.MapPath(path));
             }
 
-            // сохраняем файл в папку Files в проекте
-            file.SaveAs(HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
-
-            if (!_ndflReportFactory.Allow(HttpContext.Current.Server.MapPath($"{path}/{FileName}")))
+            if (!Directory.Exists(HttpContext.Current.Server.MapPath($"{path}/tmp")))
             {
-                File.Delete(HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
+                Directory.CreateDirectory(HttpContext.Current.Server.MapPath($"{path}/tmp"));
+            }
+
+            // сохраняем файл в папку Files в проекте
+            file.SaveAs(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
+
+            if (!_ndflReportFactory.Allow(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}")))
+            {
+                File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
                 return false;
             }
 
             TReport result;
-            if (!_ndflReportFactory.TryReadFromLocalFile(HttpContext.Current.Server.MapPath($"{path}/{FileName}"), out result))
+            if (!_ndflReportFactory.TryReadFromLocalFile(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"), out result))
             {
-                File.Delete(HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
+                File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
                 return false;
             }
 
             //try valid file
             if (!_validator.TryValidate(result))
             {
-                File.Delete(HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
+                File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
                 return false;
             }
+
+            if (File.Exists(HttpContext.Current.Server.MapPath($"{path}/{FileName}")))
+            {
+                File.Delete(HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
+            }
+            File.Copy(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"),
+                HttpContext.Current.Server.MapPath($"{path}/{FileName}"));
+            File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
 
             return true;
         }

@@ -15,8 +15,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            if (!AllEquals(entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427?.Дох34615Вс,
-                entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427?.Дох6427))
+            if (entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427.Дох34615Вс.ToInt() <
+                entity.Документ.РасчетСВ.ОбязПлатСВ.ПравТариф51427.Дох6427.ToInt())
             {
                 return false;
             }

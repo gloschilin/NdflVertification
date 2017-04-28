@@ -3,6 +3,13 @@ using System.Linq;
 
 namespace NdflVerification.Texts
 {
+
+    public class Text
+    {
+        public string Value { get; set; }
+        public bool Error { get; set; }
+    }
+
     internal class TextDictionary: ITextDictionary
     {
         private readonly ITextRepository _textRepository;

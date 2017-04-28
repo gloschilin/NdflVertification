@@ -88,12 +88,11 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.Сум3Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК)
-                .Where(e => e.Месяц.ToInt() == 3)
-                .Sum(e => e.НачислСВ);
+            var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c=>c.НачислСВДоп.Сум1Посл3М));
+            var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.НачислСВДоп.Сум1Посл3М));
+            var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e=>e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ.Where(c=>c.Месяц.ToInt() == 1).Sum(c=>c.НачислСВ));
 
-            return sum1 == sum2;
+            return sum1 + sum2 == sum3;
         }
     }
 
