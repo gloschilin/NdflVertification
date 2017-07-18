@@ -41,7 +41,12 @@ namespace NdflVerification.ReportsContext
             IntallEsss(container);
             IntallTotal(container);
 
-            container.RegisterType(typeof (IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof (EsssReprotFactory), new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof (IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof (Esss1ReprotFactory), "Esss1ReprotFactory", new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss2ReprotFactory), "Esss2ReprotFactory", new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss3ReprotFactory), "Esss3ReprotFactory", new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss4ReprotFactory), "Esss4ReprotFactory", new ContainerControlledLifetimeManager());
+            container.RegisterType<IEnumerable<IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>>, IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>[]>(new ContainerControlledLifetimeManager());
+
             container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Six.Файл>), typeof(Ndfl6ReprotFactory), new ContainerControlledLifetimeManager());
 
             container.RegisterType(typeof(IXmlReportBuilder<>), typeof(ReportBuilder<>), new ContainerControlledLifetimeManager());

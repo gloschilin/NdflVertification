@@ -44,8 +44,12 @@ namespace NdflVertification.Web.Api.App_Start
             container.RegisterType<IValidationResultHandler, WebValidationResultHandler>();
 
             container.RegisterType<IEnumerable<IFileUploader>, IFileUploader[]>();
-            container.RegisterType<IFileUploader, EsssUploader>("EsssUploader");
+            container.RegisterType<IFileUploader, Esss1Uploader>("Esss1Uploader");
             container.RegisterType<IFileUploader, Ndfl6Uploader>("Ndfl6Uploader");
+            container.RegisterType<IFileUploader, Esss2Uploader>("Esss2Uploader");
+            container.RegisterType<IFileUploader, Esss3Uploader>("Esss3Uploader");
+            container.RegisterType<IFileUploader, Esss4Uploader>("Esss4Uploader");
+
         }
     }
 }

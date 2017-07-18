@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Linq;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Factories
 {
@@ -41,5 +42,6 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         /// <param name="report"></param>
         /// <returns></returns>
         bool TryReadFromLocalFile(string pathToFile, out TReport report);
+        ReportType ReportType { get; }
     }
 }

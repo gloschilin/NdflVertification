@@ -3,20 +3,65 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
+using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Factories
 {
-
-    public class EsssReprotFactory: ReportFactory<XsdImplement.Esss.Файл>
+    public class Esss1ReprotFactory : EsssReprotFactory
     {
-        public EsssReprotFactory(IXmlReportBuilder<XsdImplement.Esss.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        public Esss1ReprotFactory(IXmlReportBuilder<Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override string PeriodValue => "21";
+        public override ReportType ReportType => ReportType.Esss1;
+    }
+
+    public class Esss2ReprotFactory : EsssReprotFactory
+    {
+        public Esss2ReprotFactory(IXmlReportBuilder<Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override string PeriodValue => "31";
+        public override ReportType ReportType => ReportType.Esss2;
+    }
+
+    public class Esss3ReprotFactory : EsssReprotFactory
+    {
+        public Esss3ReprotFactory(IXmlReportBuilder<Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override string PeriodValue => "23";
+        public override ReportType ReportType => ReportType.Esss3;
+    }
+
+    public class Esss4ReprotFactory : EsssReprotFactory
+    {
+        public Esss4ReprotFactory(IXmlReportBuilder<Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override string PeriodValue => "34";
+        public override ReportType ReportType => ReportType.Esss4;
+    }
+
+    public abstract class EsssReprotFactory: ReportFactory<XsdImplement.Esss.Файл>
+    {
+        protected EsssReprotFactory(IXmlReportBuilder<XsdImplement.Esss.Файл> xmlReportBuilder) 
+            : base(xmlReportBuilder)
         {
         }
 
         public override bool Allow(XDocument xmlDocument)
         {
-            return xmlDocument.Descendants().Any(e => e.Name == "РасчетСВ");
+            return xmlDocument.Descendants().Any(e => e.Name == "РасчетСВ")
+                && xmlDocument.Descendants().First(e=>e.Name == "Документ")?.Attribute("Период")?.Value == PeriodValue;
         }
+
+        public abstract string PeriodValue { get; }
     }
 
     public class Ndfl6ReprotFactory : ReportFactory<XsdImplement.Six.Файл>
@@ -29,6 +74,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         {
             return xmlDocument.Descendants().Any(e => e.Name == "НДФЛ6");
         }
+
+        public override ReportType ReportType => ReportType.SixNdfl;
     }
 
     public abstract class ReportFactory<TReport>: IReportFactory<TReport>
@@ -112,5 +159,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         {
             return Encoding.GetEncoding("windows-1251");
         }
+
+        public abstract ReportType ReportType { get; }
     }
 }

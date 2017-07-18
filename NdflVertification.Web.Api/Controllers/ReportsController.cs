@@ -85,8 +85,17 @@ namespace NdflVertification.Web.Api.Controllers
                         case ReportType.SixNdfl:
                             result.Ndfl6 = true;
                             break;
-                        case ReportType.Esss:
-                            result.Esss = true;
+                        case ReportType.Esss1:
+                            result.Esss1 = true;
+                            break;
+                        case ReportType.Esss2:
+                            result.Esss2 = true;
+                            break;
+                        case ReportType.Esss3:
+                            result.Esss3 = true;
+                            break;
+                        case ReportType.Esss4:
+                            result.Esss4 = true;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -107,8 +116,17 @@ namespace NdflVertification.Web.Api.Controllers
                     case ReportType.SixNdfl:
                         info.Ndfl6 = exists;
                         break;
-                    case ReportType.Esss:
-                        info.Esss = exists;
+                    case ReportType.Esss1:
+                        info.Esss1 = exists;
+                        break;
+                    case ReportType.Esss2:
+                        info.Esss2 = exists;
+                        break;
+                    case ReportType.Esss3:
+                        info.Esss3 = exists;
+                        break;
+                    case ReportType.Esss4:
+                        info.Esss4 = exists;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -129,12 +147,24 @@ namespace NdflVertification.Web.Api.Controllers
         public UploadFileResult()
         {
             FilesExists = new ReportsInfo();
-            Esss = false;
+            Esss1 = false;
+            Esss2 = false;
+            Esss3 = false;
+            Esss4 = false;
             Ndfl6 = false;
         }
 
         [DataMember]
-        public bool Esss { get; set; }
+        public bool Esss1 { get; set; }
+
+        [DataMember]
+        public bool Esss2 { get; set; }
+
+        [DataMember]
+        public bool Esss3 { get; set; }
+
+        [DataMember]
+        public bool Esss4 { get; set; }
 
         [DataMember]
         public bool Ndfl6 { get; set; }
@@ -148,12 +178,24 @@ namespace NdflVertification.Web.Api.Controllers
     {
         public ReportsInfo()
         {
-            Esss = false;
+            Esss1 = false;
+            Esss2 = false;
+            Esss3 = false;
+            Esss4 = false;
             Ndfl6 = false;
         }
 
         [DataMember]
-        public bool Esss { get; set; }
+        public bool Esss1 { get; set; }
+
+        [DataMember]
+        public bool Esss2 { get; set; }
+
+        [DataMember]
+        public bool Esss3 { get; set; }
+
+        [DataMember]
+        public bool Esss4 { get; set; }
 
         [DataMember]
         public bool Ndfl6 { get; set; }

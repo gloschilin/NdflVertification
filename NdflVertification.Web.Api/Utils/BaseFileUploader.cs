@@ -8,16 +8,17 @@ namespace NdflVertification.Web.Api.Utils
 {
     public abstract class BaseFileUploader<TReport> : IFileUploader
     {
-        private readonly IReportFactory<TReport> _ndflReportFactory;
+        private readonly IReportFactory<TReport> _reportFactory;
         private readonly IReportValidator<TReport> _validator;
 
-        public BaseFileUploader(IReportFactory<TReport> ndflReportFactory, IReportValidator<TReport> validator)
+        protected BaseFileUploader(IReportFactory<TReport> reportFactory, IReportValidator<TReport> validator)
         {
-            _ndflReportFactory = ndflReportFactory;
+            _reportFactory = reportFactory;
             _validator = validator;
         }
 
         public abstract ReportType Type { get; }
+
         protected abstract string FileName { get; }
 
         public bool TryUpload(HttpPostedFileBase file, int actionUserId)
@@ -38,14 +39,15 @@ namespace NdflVertification.Web.Api.Utils
             // сохраняем файл в папку Files в проекте
             file.SaveAs(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
 
-            if (!_ndflReportFactory.Allow(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}")))
+            if (!_reportFactory.Allow(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}")))
             {
                 File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
                 return false;
             }
 
             TReport result;
-            if (!_ndflReportFactory.TryReadFromLocalFile(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"), out result))
+            if (!_reportFactory.TryReadFromLocalFile(
+                HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"), out result))
             {
                 File.Delete(HttpContext.Current.Server.MapPath($"{path}/tmp/{FileName}"));
                 return false;

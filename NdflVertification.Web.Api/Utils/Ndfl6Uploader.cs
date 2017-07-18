@@ -10,8 +10,8 @@ namespace NdflVertification.Web.Api.Utils
 
     public class Ndfl6Uploader : BaseFileUploader<Файл>
     {
-        public Ndfl6Uploader(IReportFactory<Файл> ndflReportFactory, IReportValidator<Файл> validator) 
-            : base(ndflReportFactory, validator)
+        public Ndfl6Uploader(IReportFactory<Файл> reportFactory, IReportValidator<Файл> validator) 
+            : base(reportFactory, validator)
         {
         }
 

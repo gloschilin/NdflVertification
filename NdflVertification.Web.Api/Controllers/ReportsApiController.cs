@@ -12,18 +12,18 @@ namespace NdflVertification.Web.Api.Controllers
 {
     public class ReportsApiController : ApiController
     {
-        private readonly IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл> _esssFactory;
+        private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> _esssFactories;
         private readonly IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> _ndfl6Factory;
         private readonly IEnumerable<IFileUploader> _fileUploaders;
         private readonly IReportValidator<Reports> _reportValidator;
 
-        public ReportsApiController(IReportValidator<Reports> reportValidator, 
-            IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл> esssFactory, 
+        public ReportsApiController(IReportValidator<Reports> reportValidator,
+            IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> esssFactories, 
             IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> ndfl6Factory,
             IEnumerable<IFileUploader> fileUploaders)
         {
             _reportValidator = reportValidator;
-            _esssFactory = esssFactory;
+            _esssFactories = esssFactories;
             _ndfl6Factory = ndfl6Factory;
             _fileUploaders = fileUploaders;
         }
@@ -35,7 +35,7 @@ namespace NdflVertification.Web.Api.Controllers
             var reports = new Reports();
 
             var ndflUploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl);
-            var esssUploader = _fileUploaders.First(e => e.Type == ReportType.Esss);
+            var esssUploader = _fileUploaders.First(e => e.Type == ReportType.Esss1);
 
             if (ndflUploader.Exists(actionUserId))
             {
@@ -44,7 +44,9 @@ namespace NdflVertification.Web.Api.Controllers
 
             if (esssUploader.Exists(actionUserId))
             {
-                reports.Esss = _esssFactory.ReadFromLocalFile(esssUploader.Path(actionUserId));
+                var essFactory = _esssFactories.First(e => e.ReportType == esssUploader.Type);
+                var path = esssUploader.Path(actionUserId);
+                reports.Esss = essFactory.ReadFromLocalFile(path);
             }
 
             _reportValidator.Validate(reports);
@@ -69,8 +71,17 @@ namespace NdflVertification.Web.Api.Controllers
                     case ReportType.SixNdfl:
                         info.Ndfl6 = exists;
                         break;
-                    case ReportType.Esss:
-                        info.Esss = exists;
+                    case ReportType.Esss1:
+                        info.Esss1 = exists;
+                        break;
+                    case ReportType.Esss2:
+                        info.Esss1 = exists;
+                        break;
+                    case ReportType.Esss3:
+                        info.Esss1 = exists;
+                        break;
+                    case ReportType.Esss4:
+                        info.Esss1 = exists;
                         break;
                     default:
                         throw new HttpException("");
@@ -81,10 +92,34 @@ namespace NdflVertification.Web.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("~/reports/{actionUserId}/esss/delete")]
-        public void DeleteEsss(int actionUserId)
+        [Route("~/reports/{actionUserId}/esss1/delete")]
+        public void DeleteEsss1(int actionUserId)
         {
-            var uploader = _fileUploaders.First(e => e.Type == ReportType.Esss);
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.Esss1);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/esss2/delete")]
+        public void DeleteEsss2(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.Esss2);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/esss3/delete")]
+        public void DeleteEsss3(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.Esss3);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/esss4/delete")]
+        public void DeleteEsss4(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.Esss4);
             uploader.Delete(actionUserId);
         }
 
