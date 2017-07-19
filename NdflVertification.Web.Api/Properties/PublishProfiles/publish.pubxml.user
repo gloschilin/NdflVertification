@@ -19,37 +19,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/04/2017 04:37:45</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>02/03/2015 09:32:26</publishTime>
+      <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>02/03/2015 09:32:26</publishTime>
+      <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>07/12/2016 11:45:42</publishTime>
+      <publishTime>12/07/2016 11:45:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>07/12/2016 11:50:34</publishTime>
+      <publishTime>12/07/2016 11:50:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>06/12/2016 15:15:48</publishTime>
+      <publishTime>12/06/2016 15:15:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>07/12/2016 11:49:10</publishTime>
+      <publishTime>12/07/2016 11:49:10</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>07/12/2016 11:50:34</publishTime>
+      <publishTime>12/07/2016 11:50:34</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>06/12/2016 15:09:52</publishTime>
+      <publishTime>12/06/2016 15:09:52</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>03/04/2015 17:07:22</publishTime>
+      <publishTime>04/03/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>03/04/2015 17:07:22</publishTime>
+      <publishTime>04/03/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -61,31 +61,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2014 11:25:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
-      <publishTime>05/10/2015 09:37:20</publishTime>
+      <publishTime>10/05/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.dll">
-      <publishTime>05/10/2015 09:37:20</publishTime>
+      <publishTime>10/05/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Mvc.dll">
-      <publishTime>05/10/2015 09:37:22</publishTime>
+      <publishTime>10/05/2015 09:37:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.RegistrationByConvention.dll">
-      <publishTime>05/10/2015 09:37:20</publishTime>
+      <publishTime>10/05/2015 09:37:20</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/NdflVerification.ReportsContext.dll">
-      <publishTime>07/18/2017 16:53:18</publishTime>
+      <publishTime>07/19/2017 19:30:27</publishTime>
     </File>
     <File Include="bin/NdflVerification.Texts.dll">
-      <publishTime>04/20/2017 18:05:54</publishTime>
+      <publishTime>07/19/2017 19:30:27</publishTime>
     </File>
     <File Include="bin/NdflVertification.Web.Api.dll">
-      <publishTime>07/18/2017 16:53:19</publishTime>
+      <publishTime>07/19/2017 19:30:28</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>03/08/2014 20:33:56</publishTime>
+      <publishTime>08/03/2014 20:33:56</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>11/13/2012 12:19:34</publishTime>
@@ -148,7 +148,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:02:18</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>11/02/2014 16:26:04</publishTime>
+      <publishTime>02/11/2014 16:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>01/28/2015 04:02:32</publishTime>
@@ -166,7 +166,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2015 01:52:30</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
-      <publishTime>08/02/2013 16:42:28</publishTime>
+      <publishTime>02/08/2013 16:42:28</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>

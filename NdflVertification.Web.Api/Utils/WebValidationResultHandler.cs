@@ -11,8 +11,6 @@ namespace NdflVertification.Web.Api.Utils
     [DataContract]
     public class WebValidationInfo
     {
-        public int Quarter { get; }
-
         public WebValidationInfo(ValidationResultType status, string message, int quarter)
         {
             Quarter = quarter;
@@ -26,6 +24,9 @@ namespace NdflVertification.Web.Api.Utils
 
         [DataMember]
         public string Message { get; set; }
+
+        [DataMember]
+        public int Quarter { get; set; }
 
         [DataMember]
         public ValidationResultType Status { get; set; }

@@ -64,18 +64,60 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         public abstract string PeriodValue { get; }
     }
 
-    public class Ndfl6ReprotFactory : ReportFactory<XsdImplement.Six.Файл>
+    public abstract class Ndfl6ReprotFactory : ReportFactory<XsdImplement.Six.Файл>
     {
-        public Ndfl6ReprotFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        protected Ndfl6ReprotFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) 
+            : base(xmlReportBuilder)
         {
         }
 
         public override bool Allow(XDocument xmlDocument)
         {
-            return xmlDocument.Descendants().Any(e => e.Name == "НДФЛ6");
+            return xmlDocument.Descendants().Any(e => e.Name == "НДФЛ6")
+                && xmlDocument.Descendants().First(e => e.Name == "Документ")?.Attribute("Период")?.Value == PeriodValue; 
         }
 
-        public override ReportType ReportType => ReportType.SixNdfl;
+        protected abstract string PeriodValue { get; }
+    }
+
+    public class Ndfl61ReportFactory: Ndfl6ReprotFactory
+    {
+        public Ndfl61ReportFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override ReportType ReportType => ReportType.SixNdfl1;
+        protected override string PeriodValue => "21";
+    }
+
+    public class Ndfl62ReportFactory : Ndfl6ReprotFactory
+    {
+        public Ndfl62ReportFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override ReportType ReportType => ReportType.SixNdfl2;
+        protected override string PeriodValue => "31";
+    }
+
+    public class Ndfl63ReportFactory : Ndfl6ReprotFactory
+    {
+        public Ndfl63ReportFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override ReportType ReportType => ReportType.SixNdfl3;
+        protected override string PeriodValue => "23";
+    }
+
+    public class Ndfl64ReportFactory : Ndfl6ReprotFactory
+    {
+        public Ndfl64ReportFactory(IXmlReportBuilder<XsdImplement.Six.Файл> xmlReportBuilder) : base(xmlReportBuilder)
+        {
+        }
+
+        public override ReportType ReportType => ReportType.SixNdfl4;
+        protected override string PeriodValue => "34";
     }
 
     public abstract class ReportFactory<TReport>: IReportFactory<TReport>

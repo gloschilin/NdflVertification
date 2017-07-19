@@ -82,8 +82,17 @@ namespace NdflVertification.Web.Api.Controllers
 
                     switch (fileUploader.Type)
                     {
-                        case ReportType.SixNdfl:
-                            result.Ndfl6 = true;
+                        case ReportType.SixNdfl1:
+                            result.Ndfl61 = true;
+                            break;
+                        case ReportType.SixNdfl2:
+                            result.Ndfl62 = true;
+                            break;
+                        case ReportType.SixNdfl3:
+                            result.Ndfl63 = true;
+                            break;
+                        case ReportType.SixNdfl4:
+                            result.Ndfl64 = true;
                             break;
                         case ReportType.Esss1:
                             result.Esss1 = true;
@@ -113,8 +122,17 @@ namespace NdflVertification.Web.Api.Controllers
 
                 switch (fileUploader.Type)
                 {
-                    case ReportType.SixNdfl:
-                        info.Ndfl6 = exists;
+                    case ReportType.SixNdfl1:
+                        info.Ndfl61 = exists;
+                        break;
+                    case ReportType.SixNdfl2:
+                        info.Ndfl62 = exists;
+                        break;
+                    case ReportType.SixNdfl3:
+                        info.Ndfl63 = exists;
+                        break;
+                    case ReportType.SixNdfl4:
+                        info.Ndfl64 = exists;
                         break;
                     case ReportType.Esss1:
                         info.Esss1 = exists;
@@ -151,7 +169,10 @@ namespace NdflVertification.Web.Api.Controllers
             Esss2 = false;
             Esss3 = false;
             Esss4 = false;
-            Ndfl6 = false;
+            Ndfl61 = false;
+            Ndfl62 = false;
+            Ndfl63 = false;
+            Ndfl64 = false;
         }
 
         [DataMember]
@@ -165,12 +186,22 @@ namespace NdflVertification.Web.Api.Controllers
 
         [DataMember]
         public bool Esss4 { get; set; }
-
-        [DataMember]
-        public bool Ndfl6 { get; set; }
+        
 
         [DataMember]
         public ReportsInfo FilesExists { get; set; }
+
+        [DataMember]
+        public bool Ndfl61 { get; set; }
+
+        [DataMember]
+        public bool Ndfl62 { get; set; }
+
+        [DataMember]
+        public bool Ndfl63 { get; set; }
+
+        [DataMember]
+        public bool Ndfl64 { get; set; }
     }
 
     [DataContract]
@@ -182,7 +213,10 @@ namespace NdflVertification.Web.Api.Controllers
             Esss2 = false;
             Esss3 = false;
             Esss4 = false;
-            Ndfl6 = false;
+            Ndfl61 = false;
+            Ndfl62 = false;
+            Ndfl63 = false;
+            Ndfl64 = false;
         }
 
         [DataMember]
@@ -198,7 +232,16 @@ namespace NdflVertification.Web.Api.Controllers
         public bool Esss4 { get; set; }
 
         [DataMember]
-        public bool Ndfl6 { get; set; }
+        public bool Ndfl61 { get; set; }
+
+        [DataMember]
+        public bool Ndfl62 { get; set; }
+
+        [DataMember]
+        public bool Ndfl63 { get; set; }
+
+        [DataMember]
+        public bool Ndfl64 { get; set; }
     }
 
 

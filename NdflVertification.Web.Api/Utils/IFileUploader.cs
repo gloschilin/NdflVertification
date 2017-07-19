@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using System.Web;
+using NdflVerification.ReportsContext.Domain.Services.Factories;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVertification.Web.Api.Utils
@@ -10,6 +11,6 @@ namespace NdflVertification.Web.Api.Utils
         bool TryUpload(HttpPostedFileBase file, int actionUserId);
         bool Exists(int actionUserId);
         string Path(int actionUserId);
-        void Delete(int actionUserId);
+        void Delete(int actionUserId);   
     }
 }

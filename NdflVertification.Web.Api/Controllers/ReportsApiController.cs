@@ -13,20 +13,35 @@ namespace NdflVertification.Web.Api.Controllers
     public class ReportsApiController : ApiController
     {
         private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> _esssFactories;
-        private readonly IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> _ndfl6Factory;
+        private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> _ndfl6Factries;
         private readonly IEnumerable<IFileUploader> _fileUploaders;
         private readonly IReportValidator<Reports> _reportValidator;
 
         public ReportsApiController(IReportValidator<Reports> reportValidator,
             IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> esssFactories, 
-            IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> ndfl6Factory,
+            IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> ndfl6Factries,
             IEnumerable<IFileUploader> fileUploaders)
         {
             _reportValidator = reportValidator;
             _esssFactories = esssFactories;
-            _ndfl6Factory = ndfl6Factory;
+            _ndfl6Factries = ndfl6Factries;
             _fileUploaders = fileUploaders;
         }
+
+        private static IEnumerable<ReportType> NdflTypes => new[]
+        {
+            ReportType.SixNdfl1,
+            ReportType.SixNdfl2,
+            ReportType.SixNdfl3,
+            ReportType.SixNdfl4
+        };
+        private static IEnumerable<ReportType> EsssTypes => new[]
+        {
+            ReportType.Esss1,
+            ReportType.Esss2,
+            ReportType.Esss3,
+            ReportType.Esss4
+        };
 
         [HttpGet]
         [Route("~/reports/{actionUserId}")]
@@ -34,19 +49,20 @@ namespace NdflVertification.Web.Api.Controllers
         {
             var reports = new Reports();
 
-            var ndflUploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl);
-            var esssUploader = _fileUploaders.First(e => e.Type == ReportType.Esss1);
-
-            if (ndflUploader.Exists(actionUserId))
+            foreach (var fileUploader in _fileUploaders.Where(e=> NdflTypes.Contains(e.Type)))
             {
-                reports.Ndfl6 = _ndfl6Factory.ReadFromLocalFile(ndflUploader.Path(actionUserId));
+                if (!fileUploader.Exists(actionUserId)) continue;
+                var factory = _ndfl6Factries.Single(e => e.ReportType == fileUploader.Type);
+                var file = factory.ReadFromLocalFile(fileUploader.Path(actionUserId));
+                reports.SetNdfl(file, fileUploader.Type);
             }
 
-            if (esssUploader.Exists(actionUserId))
+            foreach (var fileUploader in _fileUploaders.Where(e=> EsssTypes.Contains(e.Type)))
             {
-                var essFactory = _esssFactories.First(e => e.ReportType == esssUploader.Type);
-                var path = esssUploader.Path(actionUserId);
-                reports.Esss = essFactory.ReadFromLocalFile(path);
+                if (!fileUploader.Exists(actionUserId)) continue;
+                var factory = _esssFactories.Single(e => e.ReportType == fileUploader.Type);
+                var file = factory.ReadFromLocalFile(fileUploader.Path(actionUserId));
+                reports.SetEsss(file, fileUploader.Type);
             }
 
             _reportValidator.Validate(reports);
@@ -55,6 +71,8 @@ namespace NdflVertification.Web.Api.Controllers
 
             return Ok(result.Where(e => e.Status == ValidationResultType.Error));
         }
+
+
 
         [HttpGet]
         [Route("~/reports/{actionUserId}/info")]
@@ -68,8 +86,17 @@ namespace NdflVertification.Web.Api.Controllers
 
                 switch (fileUploader.Type)
                 {
-                    case ReportType.SixNdfl:
-                        info.Ndfl6 = exists;
+                    case ReportType.SixNdfl1:
+                        info.Ndfl61 = exists;
+                        break;
+                    case ReportType.SixNdfl2:
+                        info.Ndfl62 = exists;
+                        break;
+                    case ReportType.SixNdfl3:
+                        info.Ndfl63 = exists;
+                        break;
+                    case ReportType.SixNdfl4:
+                        info.Ndfl64 = exists;
                         break;
                     case ReportType.Esss1:
                         info.Esss1 = exists;
@@ -124,10 +151,34 @@ namespace NdflVertification.Web.Api.Controllers
         }
 
         [HttpDelete]
-        [Route("~/reports/{actionUserId}/ndfl-6/delete")]
-        public void DeleteNdfl6(int actionUserId)
+        [Route("~/reports/{actionUserId}/ndfl-61/delete")]
+        public void DeleteNdfl61(int actionUserId)
         {
-            var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl);
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl1);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/ndfl-62/delete")]
+        public void DeleteNdfl62(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl2);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/ndfl-63/delete")]
+        public void DeleteNdfl63(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl3);
+            uploader.Delete(actionUserId);
+        }
+
+        [HttpDelete]
+        [Route("~/reports/{actionUserId}/ndfl-64/delete")]
+        public void DeleteNdfl64(int actionUserId)
+        {
+            var uploader = _fileUploaders.First(e => e.Type == ReportType.SixNdfl4);
             uploader.Delete(actionUserId);
         }
 

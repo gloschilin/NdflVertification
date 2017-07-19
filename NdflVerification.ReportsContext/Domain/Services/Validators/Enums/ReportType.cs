@@ -2,7 +2,10 @@
 {
     public enum ReportType
     {
-        SixNdfl,
+        SixNdfl1,
+        SixNdfl2,
+        SixNdfl3,
+        SixNdfl4,
         TwoNdfl,
         Esss1,
         Esss2,
