@@ -5,9 +5,6 @@
     /// </summary>
     public interface ITextDictionary
     {
-        string this[string labelName]
-        {
-            get;
-        }
+        string GetText(string label, int quarter);
     }
 }

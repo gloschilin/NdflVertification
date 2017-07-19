@@ -5,11 +5,14 @@
     /// </summary>
     public class TextInfo
     {
-        public TextInfo(string name, string value)
+        public TextInfo(string name, string value, string otherValue)
         {
+            OtherValue = otherValue;
             Name = name;
             Value = value;
         }
+
+        public string OtherValue { get; }
 
         /// <summary>
         /// Наименование метки

@@ -59,6 +59,12 @@ namespace NdflVerification.ReportsContext
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>>), typeof(IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Domain.Services.Factories.XsdImplement.Six.Файл>>), typeof(IReportStepValidator<Domain.Services.Factories.XsdImplement.Six.Файл>[]), new ContainerControlledLifetimeManager());
 
+
+            container.RegisterType<IReportQuarterHelper<Domain.Services.Factories.XsdImplement.Esss.Файл>, EsssQuarterHelper>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportQuarterHelper<Domain.Services.Factories.XsdImplement.Six.Файл>, SixNdflQuarterHelper>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportQuarterHelper<Reports>, TotalReportsQuarterHelper>(new ContainerControlledLifetimeManager());
+
+
         }
     }
 }

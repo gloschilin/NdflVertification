@@ -14,11 +14,11 @@ namespace NdflVerification.Texts
                 new SqlConnection(ConfigurationManager.ConnectionStrings["TextsConnection"].ConnectionString))
             {
                 connection.Open();
-                var command = new SqlCommand("SELECT Response, Validator FROM [dbo].[TempValidator]", connection);
+                var command = new SqlCommand("SELECT Response, Validator, OtherResponse FROM [dbo].[TempValidator]", connection);
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var text = new TextInfo(reader["Validator"].ToString(), reader["Response"].ToString());
+                    var text = new TextInfo(reader["Validator"].ToString(), reader["Response"].ToString(), reader["OtherResponse"].ToString());
                     result.Add(text);
                 }
             }

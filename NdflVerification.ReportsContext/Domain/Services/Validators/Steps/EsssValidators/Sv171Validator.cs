@@ -5,7 +5,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 {
     public class Sv171Validator : BaseReportStepValidator<Файл>
     {
-        public Sv171Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv171Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 

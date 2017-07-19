@@ -14,7 +14,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  сумме СВ на ОПС за каждый месяц по дополнительному тарифу по каждому физическому лицу
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv01Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv01Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -47,7 +48,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  сумме СВ на ОПС за каждый месяц по дополнительному тарифу по каждому физическому лицу
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv014Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv014Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -80,7 +82,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  сумме СВ на ОПС за каждый месяц по дополнительному тарифу по каждому физическому лицу
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv013Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv013Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -106,7 +109,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  сумме СВ на ОПС за каждый месяц по дополнительному тарифу по каждому физическому лицу
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv012Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv012Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -133,7 +137,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  сумме СВ на ОПС за каждый месяц по дополнительному тарифу по каждому физическому лицу
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv011Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv011Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -152,7 +157,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv015Validator : BaseReportStepValidator<Файл>
     {
-        public Sv015Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv015Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 

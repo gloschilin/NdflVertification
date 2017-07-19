@@ -4,7 +4,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Total
 {
     public class Total23Validator : BaseReportStepValidator<Reports>
     {
-        public Total23Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Total23Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Reports> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 

@@ -11,8 +11,13 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
         /// <summary>
         /// Обработать результат валидации
         /// </summary>
-        /// <param name="checkReportType"></param>
-        /// <param name="validationResultType"></param>
-        void Handle(CheckReportType checkReportType, ValidationResultType validationResultType);
+        void Handle(ValidationResult validationResult);
+    }
+
+    public class ValidationResult
+    {
+        public CheckReportType СheckReportType { get; set; }
+        public ValidationResultType ValidationResultType { get; set; }
+        public int Quarter { get; set; }
     }
 }

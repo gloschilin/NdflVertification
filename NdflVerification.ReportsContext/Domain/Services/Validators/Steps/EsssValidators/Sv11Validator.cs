@@ -12,7 +12,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
         ///  и за последние три месяца отчетного периода
         /// </summary>
         /// <param name="validationResultHandler"></param>
-        public Sv11Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        /// <param name="reportQuarterHelper"></param>
+        public Sv11Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 

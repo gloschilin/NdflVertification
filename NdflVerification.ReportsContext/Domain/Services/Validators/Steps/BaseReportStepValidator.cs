@@ -1,10 +1,47 @@
 ﻿using System;
 using System.Linq;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 using NdflVerification.ReportsContext.Utils;
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
 {
+    public abstract class BaseEsssValidator : BaseReportStepValidator<Файл>
+    {
+        private readonly IReportQuarterHelper<Файл> _reportQuarterHelper;
+
+        protected BaseEsssValidator(IValidationResultHandler validationResultHandler, 
+            IReportQuarterHelper<Файл> reportQuarterHelper) 
+            : base(validationResultHandler, reportQuarterHelper)
+        {
+            _reportQuarterHelper = reportQuarterHelper;
+        }
+
+        public int GetStartMonth(Файл entity)
+        {
+            var quarter = _reportQuarterHelper.GetQuarter(entity);
+            switch (quarter)
+            {
+                case 1:
+                    return 1;
+                case 2:
+                    return 4;
+                case 3:
+                    return 7;
+                case 4:
+                    return 10;
+                default:
+                    throw  new ApplicationException("Неизвестный тип квартала");
+            }
+        }
+        
+    }
+
+    public interface IReportQuarterHelper<in TReport>
+    {
+        int GetQuarter(TReport report);
+    }
+
     /// <summary>
     /// Базовый класс валидатора
     /// </summary>
@@ -13,19 +50,29 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
         IReportStepValidator<TReport>, ISpecification<TReport>
     {
         private readonly IValidationResultHandler _validationResultHandler;
+        private readonly IReportQuarterHelper<TReport> _reportQuarterHelper;
 
-        protected BaseReportStepValidator(IValidationResultHandler validationResultHandler)
+        protected BaseReportStepValidator(IValidationResultHandler validationResultHandler, 
+            IReportQuarterHelper<TReport> reportQuarterHelper)
         {
             _validationResultHandler = validationResultHandler;
+            _reportQuarterHelper = reportQuarterHelper;
         }
 
         public void Validate(TReport report)
         {
             var specificationResult = IsSpecificatiedBy(report);
-            _validationResultHandler.Handle(CheckReportType, 
-                specificationResult 
+
+            var validationResult = new ValidationResult
+            {
+                ValidationResultType = specificationResult
                     ? ValidationResultType.Success
-                    : ValidationResultType.Error);
+                    : ValidationResultType.Error,
+                СheckReportType = CheckReportType,
+                Quarter = _reportQuarterHelper.GetQuarter(report)
+            };
+
+            _validationResultHandler.Handle(validationResult);
         }
 
         public bool TryValidate(TReport report)

@@ -11,8 +11,11 @@ namespace NdflVertification.Web.Api.Utils
     [DataContract]
     public class WebValidationInfo
     {
-        public WebValidationInfo(ValidationResultType status, string message)
+        public int Quarter { get; }
+
+        public WebValidationInfo(ValidationResultType status, string message, int quarter)
         {
+            Quarter = quarter;
             Status = status;
             Message = message;
         }
@@ -42,14 +45,19 @@ namespace NdflVertification.Web.Api.Utils
 
         public void Handle(CheckReportType checkReportType, ValidationResultType validationResultType)
         {
-            Debug.WriteLine($"{checkReportType} : {validationResultType}");
-            var result = (HttpContext.Current.Items["WebValidationResultHandler"] as List<WebValidationInfo>) 
+            
+        }
+
+        public void Handle(ValidationResult validationResult)
+        {
+            Debug.WriteLine($"{validationResult.СheckReportType} : {validationResult.ValidationResultType}");
+            var result = (HttpContext.Current.Items["WebValidationResultHandler"] as List<WebValidationInfo>)
                 ?? new List<WebValidationInfo>();
-            var message = _textDictionary[checkReportType.ToString()] ?? checkReportType.ToString();
-            //var message = checkReportType.ToString();
-            result.Add(new WebValidationInfo(validationResultType, message)
+            var message = _textDictionary.GetText(validationResult.СheckReportType.ToString(), validationResult.Quarter)
+                ?? validationResult.СheckReportType.ToString();
+            result.Add(new WebValidationInfo(validationResult.ValidationResultType, message, validationResult.Quarter)
             {
-                Label = checkReportType.ToString()
+                Label = validationResult.СheckReportType.ToString()
             });
             HttpContext.Current.Items["WebValidationResultHandler"] = result;
         }

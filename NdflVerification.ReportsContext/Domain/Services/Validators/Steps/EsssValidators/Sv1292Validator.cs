@@ -6,7 +6,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 {
     public class Sv1308Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1308Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1308Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -27,7 +27,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1307Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1307Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1307Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -51,7 +51,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1306Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1306Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1306Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -75,7 +75,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1305Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1305Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1305Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -98,7 +98,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1304Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1304Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1304Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -121,7 +121,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1303Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1303Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1303Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -144,7 +144,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1302Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1302Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1302Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -168,7 +168,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1300Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1300Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1300Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -191,7 +191,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1299Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1299Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1299Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -214,7 +214,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1298Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1298Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1298Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -238,7 +238,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1297Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1297Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1297Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -255,7 +255,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1296Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1296Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1296Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -273,7 +273,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1295Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1295Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1295Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -291,7 +291,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1294Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1294Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1294Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) 
+            : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -307,7 +308,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1293Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1293Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1293Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
@@ -324,7 +325,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
     public class Sv1292Validator : BaseReportStepValidator<Файл>
     {
-        public Sv1292Validator(IValidationResultHandler validationResultHandler) : base(validationResultHandler)
+        public Sv1292Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
         }
 

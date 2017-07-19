@@ -14,16 +14,27 @@ namespace NdflVerification.Texts
     {
         private readonly ITextRepository _textRepository;
 
-        private Dictionary<string, string> _texts;
+        private IEnumerable<TextInfo> _texts;
 
-        private Dictionary<string, string> Texts
-            => _texts ?? (_texts = _textRepository.GetTexts().ToDictionary(e => e.Name, v => v.Value));
+        private IEnumerable<TextInfo> Texts
+            => _texts ?? (_texts = _textRepository.GetTexts());
 
         public TextDictionary(ITextRepository textRepository)
         {
             _textRepository = textRepository;
         }
 
-        public string this[string labelName] => !Texts.ContainsKey(labelName) ? null : Texts[labelName];
+        public string GetText(string label, int quarter)
+        {
+            var textItem = Texts.FirstOrDefault(e => e.Name == label);
+            if (textItem == null)
+            {
+                return null;
+            }
+
+            return quarter == 1
+                ? textItem.OtherValue
+                : textItem.Value;
+        }
     }
 }
