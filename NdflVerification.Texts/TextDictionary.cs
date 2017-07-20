@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NdflVerification.Texts
@@ -32,9 +33,37 @@ namespace NdflVerification.Texts
                 return null;
             }
 
-            return quarter == 1
-                ? textItem.OtherValue
-                : textItem.Value;
+            if (quarter == 1)
+            {
+                return textItem.Value.HandleText(quarter);
+            }
+
+            var text = (string.IsNullOrEmpty(textItem.OtherValue)
+                ? textItem.Value
+                : textItem.OtherValue).HandleText(quarter);
+
+            return text;
+        }
+    }
+
+    public static class ErrorMessageExtentions
+    {
+        private const string Code = "{quarter}";
+
+        public static string HandleText(this string text, int quarter)
+        {
+            switch (quarter)
+            {
+                case 1:
+                    return text.Replace(Code, "первый квартал");
+                case 2:
+                    return text.Replace(Code, "полугодие");
+                case 3:
+                    return text.Replace(Code, "9 месяцев");
+                case 4:
+                    return text.Replace(Code, "год");
+                default: throw new ApplicationException();
+            }
         }
     }
 }

@@ -70,9 +70,10 @@ namespace NdflVerification.ReportsContext
 
             container.RegisterType<IReportValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>, ReportValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportValidator<Domain.Services.Factories.XsdImplement.Six.Файл>, ReportValidator<Domain.Services.Factories.XsdImplement.Six.Файл>>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IReportValidator<Reports>, TotalReportValidator>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportResultValidator, TotalReportValidator>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportValidator<EsssReports>, ReportValidator<EsssReports>>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportValidator<NdflEssReports>, ReportValidator<NdflEssReports>>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportValidator<Reports>, ReportValidator<Reports>>(new ContainerControlledLifetimeManager());
 
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Reports>>), typeof(IReportStepValidator<Reports>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>>), typeof(IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>[]), new ContainerControlledLifetimeManager());

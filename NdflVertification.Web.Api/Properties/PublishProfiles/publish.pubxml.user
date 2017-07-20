@@ -76,13 +76,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/NdflVerification.ReportsContext.dll">
-      <publishTime>07/19/2017 19:30:27</publishTime>
+      <publishTime>07/19/2017 21:00:22</publishTime>
     </File>
     <File Include="bin/NdflVerification.Texts.dll">
-      <publishTime>07/19/2017 19:30:27</publishTime>
+      <publishTime>07/19/2017 21:00:22</publishTime>
     </File>
     <File Include="bin/NdflVertification.Web.Api.dll">
-      <publishTime>07/19/2017 19:30:28</publishTime>
+      <publishTime>07/19/2017 21:00:23</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/03/2014 20:33:56</publishTime>

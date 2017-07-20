@@ -4,23 +4,28 @@ using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Ess
 
 namespace NdflVerification.ReportsContext.Domain.Services.Validators
 {
-    internal class TotalReportValidator : IReportValidator<Reports>
+    public interface IReportResultValidator : IReportValidator<Reports>
+    {
+
+    }
+
+    internal class TotalReportValidator : IReportResultValidator
     {
         private readonly IReportValidator<Factories.XsdImplement.Esss.Файл> _esssValidator;
         private readonly IReportValidator<Factories.XsdImplement.Six.Файл> _ndflValidator;
-        //private readonly IReportValidator<Reports> _totalValidator;
+        private readonly IReportValidator<Reports> _totalValidator;
         private readonly IReportValidator<EsssReports> _esssReportsValidators;
         private readonly IReportValidator<NdflEssReports> _essNdflValidators;
 
         public TotalReportValidator(IReportValidator<Файл> esssValidator, 
             IReportValidator<Factories.XsdImplement.Six.Файл> ndflValidator, 
-            //IReportValidator<Reports> totalValidator, 
+            IReportValidator<Reports> totalValidator, 
             IReportValidator<EsssReports> esssReportsValidators, 
             IReportValidator<NdflEssReports> essNdflValidators)
         {
             _esssValidator = esssValidator;
             _ndflValidator = ndflValidator;
-            //_totalValidator = totalValidator;
+            _totalValidator = totalValidator;
             _esssReportsValidators = esssReportsValidators;
             _essNdflValidators = essNdflValidators;
         }
@@ -119,7 +124,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
 
         public void Validate(Reports report)
         {
-            //_totalValidator.Validate(report);
+            _totalValidator.Validate(report);
 
             ValidateEsss(report);
             ValidateNdfl(report);
