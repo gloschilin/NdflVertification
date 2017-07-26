@@ -35,15 +35,26 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
     public class NdflEssReportsQuarterHelper: IReportQuarterHelper<NdflEssReports>
     {
         private readonly IReportQuarterHelper<Файл> _esssReportQuarterHelper;
+        private readonly IReportQuarterHelper<Factories.XsdImplement.Six.Файл> _ndflReportQuarterHelper;
 
-        public NdflEssReportsQuarterHelper(IReportQuarterHelper<Файл> esssReportQuarterHelper)
+        public NdflEssReportsQuarterHelper(
+            IReportQuarterHelper<Файл> esssReportQuarterHelper,
+            IReportQuarterHelper<Factories.XsdImplement.Six.Файл> ndflReportQuarterHelper)
         {
             _esssReportQuarterHelper = esssReportQuarterHelper;
+            _ndflReportQuarterHelper = ndflReportQuarterHelper;
         }
 
         public int GetQuarter(NdflEssReports report)
         {
-            return _esssReportQuarterHelper.GetQuarter(report.Esss);
+            if (report.Esss == null && report.Ndfl == null)
+            {
+                return 1;
+            }
+
+            return report.Esss != null
+                ? _esssReportQuarterHelper.GetQuarter(report.Esss)
+                : _ndflReportQuarterHelper.GetQuarter(report.Ndfl);
         }
     }
 

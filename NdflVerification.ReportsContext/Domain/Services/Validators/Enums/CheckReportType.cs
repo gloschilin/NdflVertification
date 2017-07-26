@@ -286,6 +286,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Enums
         Sv015Validator,
         SvReports1Validator,
         SvReports2Validator,
-        SvReport2Validator
+        SvReport2Validator,
+        EsssQuartersCorrectlyValidator
     }
 }

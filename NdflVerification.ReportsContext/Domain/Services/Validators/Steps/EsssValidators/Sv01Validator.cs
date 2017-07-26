@@ -118,9 +118,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.Сум2Посл3М);
             var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК)
-                .Where(e => e.Месяц.ToInt() == 2)
+                .Where(e => e.Месяц.ToInt() == month+1)
                 .Sum(e => e.НачислСВ);
 
             return sum1 == sum2;
@@ -146,9 +147,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.Сум1Посл3М);
             var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК)
-                .Where(e => e.Месяц.ToInt() == 1)
+                .Where(e => e.Месяц.ToInt() == month)
                 .Sum(e => e.НачислСВ);
             
             return sum1 == sum2;
@@ -165,9 +167,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssV
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 2;
             if (entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.Сум3Посл3М)
                 != entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(
-                    e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(c => c.Месяц.ToInt() == 3).Sum(c => c.НачислСВ)))
+                    e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(c => c.Месяц.ToInt() == month).Sum(c => c.НачислСВ)))
             {
                 return false;
             }

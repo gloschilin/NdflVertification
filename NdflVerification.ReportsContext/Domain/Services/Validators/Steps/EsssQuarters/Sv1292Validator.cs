@@ -17,7 +17,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Current.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 var previousItem = entity.Previous?.Документ.РасчетСВ.ПерсСвСтрахЛиц
-                    .Single(e=>e.ДанФЛПолуч.СНИЛС == файлДокументРасчетСвПерсСвСтрахЛиц.ДанФЛПолуч.СНИЛС);
+                    .FirstOrDefault(e=>e.ДанФЛПолуч.СНИЛС == файлДокументРасчетСвПерсСвСтрахЛиц.ДанФЛПолуч.СНИЛС);
 
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 +
                     (previousItem?.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 ?? 0) > 876000)
@@ -39,11 +39,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1307Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.ВыплСВДоп.НачислСВВс3
                     != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ
-                    .Where(e => e.Месяц.ToInt() == 1 || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3)
+                    .Where(e => e.Месяц.ToInt() == month || e.Месяц.ToInt() == month+1 || e.Месяц.ToInt() == month+2)
                     .Sum(e => e.НачислСВ))
                 {
                     return false;
@@ -63,11 +64,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1306Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.ВыплСВДоп.ВыплСВВс3
                     != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ
-                    .Where(e => e.Месяц.ToInt() == 1 || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3)
+                    .Where(e => e.Месяц.ToInt() == month || e.Месяц.ToInt() == month+1 || e.Месяц.ToInt() == month+2)
                     .Sum(e=>e.ВыплСВ))
                 {
                     return false;
@@ -87,11 +89,13 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1305Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
+
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.НачислСВВс3
-                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == 1
-                    || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3).Sum(e => e.НачислСВ))
+                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == month
+                    || e.Месяц.ToInt() == month+1 || e.Месяц.ToInt() == month+2).Sum(e => e.НачислСВ))
                 {
                     return false;
                 }
@@ -110,11 +114,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1304Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.ВыплОПСДогВс3
-                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == 1
-                    || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3).Sum(e => e.ВыплОПСДог))
+                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == month
+                    || e.Месяц.ToInt() == month+1 || e.Месяц.ToInt() == month+2).Sum(e => e.ВыплОПСДог))
                 {
                     return false;
                 }
@@ -133,11 +138,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1303Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.ВыплОПСВс3
-                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == 1
-                    || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3).Sum(e => e.ВыплОПС))
+                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e => e.Месяц.ToInt() == month
+                    || e.Месяц.ToInt() == month+1 || e.Месяц.ToInt() == month+2).Sum(e => e.ВыплОПС))
                 {
                     return false;
                 }
@@ -156,11 +162,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1302Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Документ.РасчетСВ.ПерсСвСтрахЛиц)
             {
                 if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СумВыплВс3
-                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e=>e.Месяц.ToInt() == 1
-                    || e.Месяц.ToInt() == 2 || e.Месяц.ToInt() == 3).Sum(e=>e.СумВыпл))
+                    != файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(e=>e.Месяц.ToInt() == month
+                    || e.Месяц.ToInt() == month + 1 || e.Месяц.ToInt() == month + 2).Sum(e=>e.СумВыпл))
                 {
                     return false;
                 }
@@ -180,6 +187,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1300Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 2;
             var sum1 =
                 entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
                     e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
@@ -188,7 +196,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
                     e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
 
             var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == 3).Sum(e => e.ВыплСВ);
+                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
             return sum1 + sum2 == sum3;
         }
@@ -203,6 +211,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1299Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 1;
+
             var sum1 =
                 entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
                     e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
@@ -211,7 +221,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
                     e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
 
             var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == 2).Sum(e => e.ВыплСВ);
+                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
             return sum1 + sum2 == sum3;
         }
@@ -226,6 +236,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1298Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
+
             var sum1 =
                 entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
                     e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
@@ -234,7 +246,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
                     e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
 
             var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == 1).Sum(e => e.ВыплСВ);
+                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
             return sum1 + sum2 == sum3;
         }
@@ -251,9 +263,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 2;
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
                 e.РасчСВ_ОПС.БазНачислСВ.Сум3Посл3М - e.РасчСВ_ОПС.БазПревышОПС.Сум3Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == 3).Sum(n => n.ВыплОПС));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == month).Sum(n => n.ВыплОПС));
             return sum2 == sum1;
         }
     }
@@ -268,9 +281,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 1;
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
                 e.РасчСВ_ОПС.БазНачислСВ.Сум2Посл3М - e.РасчСВ_ОПС.БазПревышОПС.Сум2Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == 2).Sum(n => n.ВыплОПС));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == month).Sum(n => n.ВыплОПС));
             return sum2 == sum1;
         }
     }
@@ -286,9 +300,10 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
                 e.РасчСВ_ОПС.БазНачислСВ.Сум1Посл3М - e.РасчСВ_ОПС.БазПревышОПС.Сум1Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == 1).Sum(n => n.ВыплОПС));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == month).Sum(n => n.ВыплОПС));
             return sum2 == sum1;
         }
     }
@@ -305,8 +320,9 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity) + 2;
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОМС.ВыплНачислФЛ.Сум3Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == 3).Sum(n => n.СумВыпл));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == month).Sum(n => n.СумВыпл));
             return sum1 == sum2;
         }
     }
@@ -321,8 +337,9 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОМС.ВыплНачислФЛ.Сум2Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == 2).Sum(n => n.СумВыпл));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e => e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n => n.Месяц.ToInt() == month+1).Sum(n => n.СумВыпл));
             return sum1 == sum2;
         }
     }
@@ -338,8 +355,9 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
+            var month = GetQuarterStartMonth(entity);
             var sum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e => e.РасчСВ_ОМС.ВыплНачислФЛ.Сум1Посл3М);
-            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e=>e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n=>n.Месяц.ToInt() == 1).Sum(n=>n.СумВыпл));
+            var sum2 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e=>e.СвВыплСВОПС.СвВыпл.СвВыплМК.Where(n=>n.Месяц.ToInt() == month).Sum(n=>n.СумВыпл));
             return sum1 == sum2;
         }
     }

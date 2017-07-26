@@ -12,6 +12,8 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
         /// Обработать результат валидации
         /// </summary>
         void Handle(ValidationResult validationResult);
+
+        bool AnyErrors();
     }
 
     public class ValidationResult

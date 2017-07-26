@@ -243,6 +243,7 @@
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv199Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv190Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\EsssValidators\Sv19Validator.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\FullReportsValidators\EsssQuartersCorrectlyValidator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\FullReportsValidators\SvReports1Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\NdflEsssValidators\Total22Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\NdflEsssValidators\Total23Validator.cs" />

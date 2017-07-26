@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
@@ -61,6 +62,13 @@ namespace NdflVertification.Web.Api.Utils
                 Label = validationResult.СheckReportType.ToString()
             });
             HttpContext.Current.Items["WebValidationResultHandler"] = result;
+        }
+
+        public bool AnyErrors()
+        {
+            var result = (HttpContext.Current.Items["WebValidationResultHandler"] as List<WebValidationInfo>)
+                ?? new List<WebValidationInfo>();
+            return result.Any(e=>e.Status == ValidationResultType.Error);
         }
     }
 }

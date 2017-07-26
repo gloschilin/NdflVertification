@@ -16,18 +16,21 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
         private readonly IReportValidator<Reports> _totalValidator;
         private readonly IReportValidator<EsssReports> _esssReportsValidators;
         private readonly IReportValidator<NdflEssReports> _essNdflValidators;
+        private readonly IValidationResultHandler _validationResultHandler;
 
         public TotalReportValidator(IReportValidator<Файл> esssValidator, 
             IReportValidator<Factories.XsdImplement.Six.Файл> ndflValidator, 
             IReportValidator<Reports> totalValidator, 
             IReportValidator<EsssReports> esssReportsValidators, 
-            IReportValidator<NdflEssReports> essNdflValidators)
+            IReportValidator<NdflEssReports> essNdflValidators,
+            IValidationResultHandler validationResultHandler)
         {
             _esssValidator = esssValidator;
             _ndflValidator = ndflValidator;
             _totalValidator = totalValidator;
             _esssReportsValidators = esssReportsValidators;
             _essNdflValidators = essNdflValidators;
+            _validationResultHandler = validationResultHandler;
         }
 
         private void ValidateEsss(Reports report)
@@ -101,35 +104,31 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
 
         private void ValidateEsssAndNdfl(Reports report)
         {
-            if (report.Esss1 != null && report.Ndfl61 != null)
-            {
-                _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl61, Esss = report.Esss1 });
-            }
-
-            if (report.Esss2 != null && report.Ndfl62 != null)
-            {
-                _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl62, Esss = report.Esss2 });
-            }
-
-            if (report.Esss3 != null && report.Ndfl63 != null)
-            {
-                _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl63, Esss = report.Esss3 });
-            }
-
-            if (report.Esss4 != null && report.Ndfl64 != null)
-            {
-                _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl64, Esss = report.Esss4 });
-            }
+            _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl61, Esss = report.Esss1 });
+            _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl62, Esss = report.Esss2 });
+            _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl63, Esss = report.Esss3 });
+            _essNdflValidators.Validate(new NdflEssReports { Ndfl = report.Ndfl64, Esss = report.Esss4 });
         }
 
         public void Validate(Reports report)
         {
             _totalValidator.Validate(report);
+            if (_validationResultHandler.AnyErrors())
+            {
+                return;
+            }
+            
+            ValidateEsssAndNdfl(report);
+
+            if (_validationResultHandler.AnyErrors())
+            {
+                return;
+            }
 
             ValidateEsss(report);
             ValidateNdfl(report);
             ValidateEsssQuarters(report);
-            ValidateEsssAndNdfl(report);
+            
         }
 
         public bool TryValidate(Reports report)

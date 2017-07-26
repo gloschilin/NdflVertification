@@ -36,6 +36,19 @@ namespace NdflVerification.ReportsContext
             }
         }
 
+        private static void IntallNdflEssReports(IUnityContainer container)
+        {
+            var mscorlib = typeof(BaseReportStepValidator<NdflEssReports>).Assembly;
+            var types =
+                mscorlib.GetTypes()
+                    .Where(e => typeof(BaseReportStepValidator<NdflEssReports>).IsAssignableFrom(e) && !e.IsAbstract)
+                    .ToList();
+            foreach (var type in types)
+            {
+                container.RegisterType(typeof(IReportStepValidator<NdflEssReports>), type, type.FullName);
+            }
+        }
+
         private static void IntallTotal(IUnityContainer container)
         {
             var mscorlib = typeof(BaseReportStepValidator<Reports>).Assembly;
@@ -54,6 +67,7 @@ namespace NdflVerification.ReportsContext
             IntallEsss(container);
             IntallTotal(container);
             IntallEsssQuarters(container);
+            IntallNdflEssReports(container);
             container.RegisterType(typeof (IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof (Esss1ReprotFactory), "Esss1ReprotFactory", new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss2ReprotFactory), "Esss2ReprotFactory", new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss3ReprotFactory), "Esss3ReprotFactory", new ContainerControlledLifetimeManager());

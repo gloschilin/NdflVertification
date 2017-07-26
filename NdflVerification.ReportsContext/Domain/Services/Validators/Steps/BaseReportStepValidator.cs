@@ -59,6 +59,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
             _reportQuarterHelper = reportQuarterHelper;
         }
 
+        public int GetQuarter(TReport report)
+        {
+            return _reportQuarterHelper.GetQuarter(report);
+        }
+
+        public int GetQuarterStartMonth(TReport report)
+        {
+            var quarter = GetQuarter(report);
+            return quarter*3 - 2;
+        }
+
         public void Validate(TReport report)
         {
             var specificationResult = IsSpecificatiedBy(report);
