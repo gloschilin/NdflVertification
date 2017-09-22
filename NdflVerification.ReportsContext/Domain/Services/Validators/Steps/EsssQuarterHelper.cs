@@ -26,9 +26,30 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
 
     public class TotalReportsQuarterHelper: IReportQuarterHelper<Reports>
     {
+
         public int GetQuarter(Reports report)
         {
-            return 4;
+            if (report.Esss4 != null)
+            {
+                return 4;
+            }
+
+            if (report.Esss3 != null)
+            {
+                return 3;
+            }
+
+            if (report.Esss2 != null)
+            {
+                return 2;
+            }
+
+            if (report.Esss1 != null)
+            {
+                return 1;
+            }
+
+            return 1;
         }
     }
 

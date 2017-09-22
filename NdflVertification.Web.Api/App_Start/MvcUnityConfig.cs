@@ -43,15 +43,17 @@ namespace NdflVertification.Web.Api.App_Start
             TextsInstaller.Install(container);
             container.RegisterType<IValidationResultHandler, WebValidationResultHandler>();
 
-            container.RegisterType<IEnumerable<IFileUploader>, IFileUploader[]>();
-            container.RegisterType<IFileUploader, Esss1Uploader>("Esss1Uploader");
-            container.RegisterType<IFileUploader, Esss2Uploader>("Esss2Uploader");
-            container.RegisterType<IFileUploader, Esss3Uploader>("Esss3Uploader");
-            container.RegisterType<IFileUploader, Esss4Uploader>("Esss4Uploader");
-            container.RegisterType<IFileUploader, Ndfl61Uploader>("Ndfl61Uploader");
-            container.RegisterType<IFileUploader, Ndfl62Uploader>("Ndfl62Uploader");
-            container.RegisterType<IFileUploader, Ndfl63Uploader>("Ndfl63Uploader");
-            container.RegisterType<IFileUploader, Ndfl64Uploader>("Ndfl64Uploader");
+            container.RegisterType<IEnumerable<IConcreteFileUploader>, IConcreteFileUploader[]>();
+            container.RegisterType<IConcreteFileUploader, Esss1Uploader>("Esss1Uploader");
+            container.RegisterType<IConcreteFileUploader, Esss2Uploader>("Esss2Uploader");
+            container.RegisterType<IConcreteFileUploader, Esss3Uploader>("Esss3Uploader");
+            container.RegisterType<IConcreteFileUploader, Esss4Uploader>("Esss4Uploader");
+            container.RegisterType<IConcreteFileUploader, Ndfl61Uploader>("Ndfl61Uploader");
+            container.RegisterType<IConcreteFileUploader, Ndfl62Uploader>("Ndfl62Uploader");
+            container.RegisterType<IConcreteFileUploader, Ndfl63Uploader>("Ndfl63Uploader");
+            container.RegisterType<IConcreteFileUploader, Ndfl64Uploader>("Ndfl64Uploader");
+
+            container.RegisterType<IFileUploader, FileUploader>(new ContainerControlledLifetimeManager());
 
         }
     }

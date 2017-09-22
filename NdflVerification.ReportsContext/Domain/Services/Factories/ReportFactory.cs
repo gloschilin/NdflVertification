@@ -142,9 +142,15 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
 
             var fileContent = File.ReadAllText(pathToFile, GetEncoding());
 
-            var xmlDocumnet = XDocument.Parse(fileContent);
-
-            return Allow(xmlDocumnet);
+            try
+            {
+                var xmlDocumnet = XDocument.Parse(fileContent);
+                return Allow(xmlDocumnet);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public TReport ReadFromStream(Stream stream)

@@ -14,13 +14,13 @@ namespace NdflVertification.Web.Api.Controllers
     {
         private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> _esssFactories;
         private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> _ndfl6Factries;
-        private readonly IEnumerable<IFileUploader> _fileUploaders;
+        private readonly IEnumerable<IConcreteFileUploader> _fileUploaders;
         private readonly IReportResultValidator _reportValidator;
 
         public ReportsApiController(IReportResultValidator reportValidator,
             IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> esssFactories, 
             IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> ndfl6Factries,
-            IEnumerable<IFileUploader> fileUploaders)
+            IEnumerable<IConcreteFileUploader> fileUploaders)
         {
             _reportValidator = reportValidator;
             _esssFactories = esssFactories;

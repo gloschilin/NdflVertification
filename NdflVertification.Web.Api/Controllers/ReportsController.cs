@@ -41,11 +41,13 @@ namespace NdflVertification.Web.Api.Controllers
 
     public class ReportsController : Controller
     {
-        private readonly IEnumerable<IFileUploader> _fileUploaders;
+        private readonly IFileUploader _fileUploader;
+        //private readonly IEnumerable<IConcreteFileUploader> _fileUploaders;
 
-        public ReportsController(IEnumerable<IFileUploader> fileUploaders)
+        public ReportsController(IFileUploader fileUploader)
         {
-            _fileUploaders = fileUploaders;
+            _fileUploader = fileUploader;
+            //_fileUploaders = fileUploaders;
         }
 
         [HttpGet]
@@ -71,80 +73,76 @@ namespace NdflVertification.Web.Api.Controllers
 
             foreach (var httpPostedFileBase in files)
             {
-                if (httpPostedFileBase == null)
+                ReportType reportType;
+
+                if (httpPostedFileBase == null
+                    || !_fileUploader.TryUpload(httpPostedFileBase.File, actionUserId, out reportType))
                 {
                     continue;
                 }
 
-                foreach (var fileUploader in _fileUploaders)
+                switch (reportType)
                 {
-                    if (!fileUploader.TryUpload(httpPostedFileBase.File, actionUserId)) continue;
-
-                    switch (fileUploader.Type)
-                    {
-                        case ReportType.SixNdfl1:
-                            result.Ndfl61 = true;
-                            break;
-                        case ReportType.SixNdfl2:
-                            result.Ndfl62 = true;
-                            break;
-                        case ReportType.SixNdfl3:
-                            result.Ndfl63 = true;
-                            break;
-                        case ReportType.SixNdfl4:
-                            result.Ndfl64 = true;
-                            break;
-                        case ReportType.Esss1:
-                            result.Esss1 = true;
-                            break;
-                        case ReportType.Esss2:
-                            result.Esss2 = true;
-                            break;
-                        case ReportType.Esss3:
-                            result.Esss3 = true;
-                            break;
-                        case ReportType.Esss4:
-                            result.Esss4 = true;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-
-                    break;
+                    case ReportType.SixNdfl1:
+                        result.Ndfl61 = true;
+                        break;
+                    case ReportType.SixNdfl2:
+                        result.Ndfl62 = true;
+                        break;
+                    case ReportType.SixNdfl3:
+                        result.Ndfl63 = true;
+                        break;
+                    case ReportType.SixNdfl4:
+                        result.Ndfl64 = true;
+                        break;
+                    case ReportType.Esss1:
+                        result.Esss1 = true;
+                        break;
+                    case ReportType.Esss2:
+                        result.Esss2 = true;
+                        break;
+                    case ReportType.Esss3:
+                        result.Esss3 = true;
+                        break;
+                    case ReportType.Esss4:
+                        result.Esss4 = true;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 
             var info = new ReportsInfo();
 
-            foreach (var fileUploader in _fileUploaders)
-            {
-                var exists = fileUploader.Exists(actionUserId);
+            var existFiles = _fileUploader.Exists(actionUserId);
 
-                switch (fileUploader.Type)
+            foreach (var existsFile in existFiles)
+            {
+                switch (existsFile)
                 {
                     case ReportType.SixNdfl1:
-                        info.Ndfl61 = exists;
+                        info.Ndfl61 = true;
                         break;
                     case ReportType.SixNdfl2:
-                        info.Ndfl62 = exists;
+                        info.Ndfl62 = true;
                         break;
                     case ReportType.SixNdfl3:
-                        info.Ndfl63 = exists;
+                        info.Ndfl63 = true;
                         break;
                     case ReportType.SixNdfl4:
-                        info.Ndfl64 = exists;
+                        info.Ndfl64 = true;
                         break;
                     case ReportType.Esss1:
-                        info.Esss1 = exists;
+                        info.Esss1 = true;
                         break;
                     case ReportType.Esss2:
-                        info.Esss2 = exists;
+                        info.Esss2 = true;
                         break;
                     case ReportType.Esss3:
-                        info.Esss3 = exists;
+                        info.Esss3 = true;
                         break;
                     case ReportType.Esss4:
-                        info.Esss4 = exists;
+                        info.Esss4 = true;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();

@@ -6,7 +6,7 @@ using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 namespace NdflVertification.Web.Api.Utils
 {
 
-    public class Ndfl61Uploader : BaseFileUploader<Файл>
+    public class Ndfl61Uploader : BaseConcreteFileUploader<Файл>
     {
         public Ndfl61Uploader(Ndfl61ReportFactory reportFactory, IReportValidator<Файл> validator) 
             : base(reportFactory, validator)
@@ -17,7 +17,7 @@ namespace NdflVertification.Web.Api.Utils
         protected override string FileName => "ndfl61.file";
     }
 
-    public class Ndfl62Uploader : BaseFileUploader<Файл>
+    public class Ndfl62Uploader : BaseConcreteFileUploader<Файл>
     {
         public Ndfl62Uploader(Ndfl62ReportFactory reportFactory, IReportValidator<Файл> validator)
             : base(reportFactory, validator)
@@ -28,7 +28,7 @@ namespace NdflVertification.Web.Api.Utils
         protected override string FileName => "ndfl62.file";
     }
 
-    public class Ndfl63Uploader : BaseFileUploader<Файл>
+    public class Ndfl63Uploader : BaseConcreteFileUploader<Файл>
     {
         public Ndfl63Uploader(Ndfl63ReportFactory reportFactory, IReportValidator<Файл> validator)
             : base(reportFactory, validator)
@@ -39,7 +39,7 @@ namespace NdflVertification.Web.Api.Utils
         protected override string FileName => "ndfl63.file";
     }
 
-    public class Ndfl64Uploader : BaseFileUploader<Файл>
+    public class Ndfl64Uploader : BaseConcreteFileUploader<Файл>
     {
         public Ndfl64Uploader(Ndfl64ReportFactory reportFactory, IReportValidator<Файл> validator)
             : base(reportFactory, validator)

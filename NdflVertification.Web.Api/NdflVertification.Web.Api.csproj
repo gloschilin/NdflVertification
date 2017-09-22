@@ -221,10 +221,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Utils\BaseFileUploader.cs" />
+    <Compile Include="Utils\BaseConcreteFileUploader.cs" />
     <Compile Include="Utils\Ndfl6Uploader.cs" />
     <Compile Include="Utils\EsssFileUploader.cs" />
-    <Compile Include="Utils\IFileUploader.cs" />
+    <Compile Include="Utils\IConcreteFileUploader.cs" />
     <Compile Include="Utils\WebValidationResultHandler.cs" />
   </ItemGroup>
   <ItemGroup>

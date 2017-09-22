@@ -1,11 +1,9 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using NdflVerification.ReportsContext.Domain.Services.Factories;
+﻿using System.Web;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 
 namespace NdflVertification.Web.Api.Utils
 {
-    public interface IFileUploader
+    public interface IConcreteFileUploader
     {
         ReportType Type { get; }
         bool TryUpload(HttpPostedFileBase file, int actionUserId);
