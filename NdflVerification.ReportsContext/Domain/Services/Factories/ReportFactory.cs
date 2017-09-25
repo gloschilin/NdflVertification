@@ -34,7 +34,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         {
         }
 
-        public override string PeriodValue => "23";
+        public override string PeriodValue => "33";
         public override ReportType ReportType => ReportType.Esss3;
     }
 
@@ -107,7 +107,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Factories
         }
 
         public override ReportType ReportType => ReportType.SixNdfl3;
-        protected override string PeriodValue => "23";
+        protected override string PeriodValue => "33";
     }
 
     public class Ndfl64ReportFactory : Ndfl6ReprotFactory
