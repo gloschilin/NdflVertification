@@ -12,7 +12,7 @@ namespace NdflVertification.Web.Api.Utils
         {
         }
 
-        public override ReportType Type => ReportType.Esss3;
+        public override ReportType Type => ReportType.Esss4;
         protected override string FileName => "esss_4.file";
     }
 

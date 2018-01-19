@@ -225,6 +225,7 @@
     <Compile Include="Utils\Ndfl6Uploader.cs" />
     <Compile Include="Utils\EsssFileUploader.cs" />
     <Compile Include="Utils\IConcreteFileUploader.cs" />
+    <Compile Include="Utils\ReportInfoBuilder.cs" />
     <Compile Include="Utils\WebValidationResultHandler.cs" />
   </ItemGroup>
   <ItemGroup>

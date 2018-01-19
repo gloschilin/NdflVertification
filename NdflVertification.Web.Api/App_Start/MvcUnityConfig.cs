@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 using NdflVerification.ReportsContext;
@@ -54,6 +54,9 @@ namespace NdflVertification.Web.Api.App_Start
             container.RegisterType<IConcreteFileUploader, Ndfl64Uploader>("Ndfl64Uploader");
 
             container.RegisterType<IFileUploader, FileUploader>(new ContainerControlledLifetimeManager());
+
+            container.RegisterType<IReportInfoBuilder<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>, NdflInfoBuilder>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportInfoBuilder<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>, EsssInfoBuilder>(new ContainerControlledLifetimeManager());
 
         }
     }

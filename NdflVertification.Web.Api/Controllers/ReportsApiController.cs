@@ -1,12 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.Http;
 using NdflVerification.ReportsContext.Domain;
 using NdflVerification.ReportsContext.Domain.Services.Factories;
+using NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six;
 using NdflVerification.ReportsContext.Domain.Services.Validators;
 using NdflVerification.ReportsContext.Domain.Services.Validators.Enums;
 using NdflVertification.Web.Api.Utils;
+using Файл = NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл;
 
 namespace NdflVertification.Web.Api.Controllers
 {
@@ -15,17 +21,24 @@ namespace NdflVertification.Web.Api.Controllers
         private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> _esssFactories;
         private readonly IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> _ndfl6Factries;
         private readonly IEnumerable<IConcreteFileUploader> _fileUploaders;
+        private readonly IReportInfoBuilder<Файл> _esssInfoBuilder;
+        private readonly IReportInfoBuilder<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> _ndflInfoBuilder;
         private readonly IReportResultValidator _reportValidator;
 
         public ReportsApiController(IReportResultValidator reportValidator,
             IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл>> esssFactories, 
             IEnumerable<IReportFactory<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл>> ndfl6Factries,
-            IEnumerable<IConcreteFileUploader> fileUploaders)
+            IEnumerable<IConcreteFileUploader> fileUploaders,
+
+            IReportInfoBuilder<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Esss.Файл> esssInfoBuilder,
+            IReportInfoBuilder<NdflVerification.ReportsContext.Domain.Services.Factories.XsdImplement.Six.Файл> ndflInfoBuilder)
         {
             _reportValidator = reportValidator;
             _esssFactories = esssFactories;
             _ndfl6Factries = ndfl6Factries;
             _fileUploaders = fileUploaders;
+            _esssInfoBuilder = esssInfoBuilder;
+            _ndflInfoBuilder = ndflInfoBuilder;
         }
 
         private static IEnumerable<ReportType> NdflTypes => new[]
@@ -216,5 +229,57 @@ namespace NdflVertification.Web.Api.Controllers
             //HttpContext.Current.Response.Headers.Add("Access-Control-Allow-Origin", "*");
             return Ok();
         }
+
+        //[Route("~/reports/total")]
+        //public IHttpActionResult GetTotal()
+        //{
+        //    var path = HttpContext.Current.Server.MapPath("~/Files");
+        //    var pathToFile = HttpContext.Current.Server.MapPath($"~/{DateTime.Now:yyyyMMddhhmmss}.txt");
+        //    var folders = Directory.GetDirectories(path);
+        //    var context = HttpContext.Current;
+        //    ThreadPool.QueueUserWorkItem(state =>
+        //    {
+        //        var resultContent = new StringBuilder();
+        //        resultContent.AppendLine("Тип отчета|BitrixId|Инн|Год|Период|Дата создания|КолВсегоПер");
+        //        HttpContext.Current = context;
+        //        foreach (var folder in folders)
+        //        {
+        //            var dirInfo = new DirectoryInfo(folder);
+        //            int userId;
+        //            if (!int.TryParse(dirInfo.Name, out userId))
+        //            {
+        //                continue;
+        //            }
+
+        //            foreach (var fileUploader in _fileUploaders.Where(e => NdflTypes.Contains(e.Type)))
+        //            {
+        //                if (!fileUploader.Exists(userId)) continue;
+        //                var factory = _ndfl6Factries.Single(e => e.ReportType == fileUploader.Type);
+        //                var file = factory.ReadFromLocalFile(fileUploader.Path(userId));
+        //                _ndflInfoBuilder.Build(resultContent, file, userId, dirInfo.CreationTime);
+        //            }
+
+        //            foreach (var fileUploader in _fileUploaders.Where(e => EsssTypes.Contains(e.Type)))
+        //            {
+        //                if (!fileUploader.Exists(userId)) continue;
+        //                var factory = _esssFactories.Single(e => e.ReportType == fileUploader.Type);
+        //                var file = factory.ReadFromLocalFile(fileUploader.Path(userId));
+        //                _esssInfoBuilder.Build(resultContent, file, userId, dirInfo.CreationTime);
+        //            }
+                    
+        //        }
+        //        File.AppendAllText(pathToFile, resultContent.ToString());
+        //    });
+        //    return Ok();
+        //}
+    }
+
+    public class FilesResult
+    {
+        public int BitrixId { get; set; }
+        public string Period { get; set; }
+        public string Inn { get; set; }
+        public string Year { get; set; }
+        public string PersonsAmount { get; set; }
     }
 }
