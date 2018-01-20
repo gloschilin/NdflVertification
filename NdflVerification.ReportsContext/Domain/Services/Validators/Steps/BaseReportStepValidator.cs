@@ -8,13 +8,11 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
 {
     public abstract class BaseEsssValidator : BaseReportStepValidator<Файл>
     {
-        private readonly IReportQuarterHelper<Файл> _reportQuarterHelper;
 
         protected BaseEsssValidator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) 
             : base(validationResultHandler, reportQuarterHelper)
         {
-            _reportQuarterHelper = reportQuarterHelper;
         }
 
         public int GetStartMonth(Файл entity)
@@ -50,7 +48,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps
         IReportStepValidator<TReport>, ISpecification<TReport>
     {
         private readonly IValidationResultHandler _validationResultHandler;
-        private readonly IReportQuarterHelper<TReport> _reportQuarterHelper;
+        protected readonly IReportQuarterHelper<TReport> _reportQuarterHelper;
 
         protected BaseReportStepValidator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<TReport> reportQuarterHelper)

@@ -251,6 +251,7 @@
     <Compile Include="Domain\Services\Validators\Steps\NdflEsssValidators\Total25Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\NdflEsssValidators\Total26Validator.cs" />
     <Compile Include="Domain\Services\Validators\Steps\NdflEsssValidators\Total21Validators.cs" />
+    <Compile Include="Domain\Services\Validators\Steps\ValidatorsFrom20180120\Sv20180120N1Validator.cs" />
     <Compile Include="Extensions\TextExtensions.cs" />
     <Compile Include="Utils\ISpecification.cs" />
     <Compile Include="Domain\Services\Validators\IValidationResultHandler.cs" />
