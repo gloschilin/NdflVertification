@@ -16,6 +16,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
         private readonly IReportValidator<Reports> _totalValidator;
         private readonly IReportValidator<EsssReports> _esssReportsValidators;
         private readonly IReportValidator<NdflEssReports> _essNdflValidators;
+        private readonly IReportValidator<AllEssReports> _allEsssValidator;
         private readonly IValidationResultHandler _validationResultHandler;
 
         public TotalReportValidator(IReportValidator<Файл> esssValidator, 
@@ -23,6 +24,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
             IReportValidator<Reports> totalValidator, 
             IReportValidator<EsssReports> esssReportsValidators, 
             IReportValidator<NdflEssReports> essNdflValidators,
+            IReportValidator<AllEssReports> allEsssValidator,
             IValidationResultHandler validationResultHandler)
         {
             _esssValidator = esssValidator;
@@ -30,7 +32,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
             _totalValidator = totalValidator;
             _esssReportsValidators = esssReportsValidators;
             _essNdflValidators = essNdflValidators;
+            _allEsssValidator = allEsssValidator;
             _validationResultHandler = validationResultHandler;
+        }
+
+        private void ValidateAllEsss(Reports report)
+        {
+            var dto = new AllEssReports(report);
+            if (dto.NeedValidate)
+            {
+                _allEsssValidator.Validate(dto);
+            }
         }
 
         private void ValidateEsss(Reports report)
@@ -125,11 +137,14 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators
                 return;
             }
 
+            ValidateAllEsss(report);
             ValidateEsss(report);
             ValidateNdfl(report);
             ValidateEsssQuarters(report);
             
         }
+
+        
 
         public bool TryValidate(Reports report)
         {

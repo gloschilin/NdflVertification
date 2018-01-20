@@ -23,6 +23,19 @@ namespace NdflVerification.ReportsContext
             }
         }
 
+        private static void IntallAllEsssValidators(IUnityContainer container)
+        {
+            var mscorlib = typeof(BaseReportStepValidator<AllEssReports>).Assembly;
+            var types =
+                mscorlib.GetTypes()
+                    .Where(e => typeof(BaseReportStepValidator<AllEssReports>).IsAssignableFrom(e) && !e.IsAbstract)
+                    .ToList();
+            foreach (var type in types)
+            {
+                container.RegisterType(typeof(IReportStepValidator<AllEssReports>), type, type.FullName);
+            }
+        }
+
         private static void IntallEsssQuarters(IUnityContainer container)
         {
             var mscorlib = typeof(BaseReportStepValidator<EsssReports>).Assembly;
@@ -68,6 +81,7 @@ namespace NdflVerification.ReportsContext
             IntallTotal(container);
             IntallEsssQuarters(container);
             IntallNdflEssReports(container);
+            IntallAllEsssValidators(container);
             container.RegisterType(typeof (IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof (Esss1ReprotFactory), "Esss1ReprotFactory", new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss2ReprotFactory), "Esss2ReprotFactory", new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IReportFactory<Domain.Services.Factories.XsdImplement.Esss.Файл>), typeof(Esss3ReprotFactory), "Esss3ReprotFactory", new ContainerControlledLifetimeManager());
@@ -88,12 +102,15 @@ namespace NdflVerification.ReportsContext
             container.RegisterType<IReportValidator<EsssReports>, ReportValidator<EsssReports>>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportValidator<NdflEssReports>, ReportValidator<NdflEssReports>>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportValidator<Reports>, ReportValidator<Reports>>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportValidator<AllEssReports>, ReportValidator<AllEssReports>>(new ContainerControlledLifetimeManager());
+            
 
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Reports>>), typeof(IReportStepValidator<Reports>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>>), typeof(IReportStepValidator<Domain.Services.Factories.XsdImplement.Esss.Файл>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<Domain.Services.Factories.XsdImplement.Six.Файл>>), typeof(IReportStepValidator<Domain.Services.Factories.XsdImplement.Six.Файл>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<EsssReports>>), typeof(IReportStepValidator<EsssReports>[]), new ContainerControlledLifetimeManager());
             container.RegisterType(typeof(IEnumerable<IReportStepValidator<NdflEssReports>>), typeof(IReportStepValidator<NdflEssReports>[]), new ContainerControlledLifetimeManager());
+            container.RegisterType(typeof(IEnumerable<IReportStepValidator<AllEssReports>>), typeof(IReportStepValidator<AllEssReports>[]), new ContainerControlledLifetimeManager());
 
 
             container.RegisterType<IReportQuarterHelper<Domain.Services.Factories.XsdImplement.Esss.Файл>, EsssQuarterHelper>(new ContainerControlledLifetimeManager());
@@ -101,6 +118,8 @@ namespace NdflVerification.ReportsContext
             container.RegisterType<IReportQuarterHelper<Reports>, TotalReportsQuarterHelper>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportQuarterHelper<EsssReports>, EsssQuartersQuarterHelper>(new ContainerControlledLifetimeManager());
             container.RegisterType<IReportQuarterHelper<NdflEssReports>, NdflEssReportsQuarterHelper>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IReportQuarterHelper<AllEssReports>, AllEssReportsReportsQuarterHelper>(new ContainerControlledLifetimeManager());
+
 
 
         }

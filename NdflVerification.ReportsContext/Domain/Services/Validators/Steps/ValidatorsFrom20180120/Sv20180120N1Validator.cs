@@ -10,7 +10,12 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
      * https://docs.google.com/spreadsheets/d/1Scty8gUqMALQsWVHTYp0Rezp13_Gb4xYww9u1Shls54/edit#gid=1326035220
      */
 
-    public class Sv20180120N1Validator: BaseReportStepValidator<Файл>
+    public interface IEsssComplexValidator
+    {
+
+    }
+
+    public class Sv20180120N1Validator: BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N1Validator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) 
@@ -32,7 +37,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N2Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N2Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N2Validator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) 
@@ -54,7 +59,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N3Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N3Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
 
         public Sv20180120N3Validator(IValidationResultHandler validationResultHandler, 
@@ -80,7 +85,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N4Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N4Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
 
         public Sv20180120N4Validator(IValidationResultHandler validationResultHandler, 
@@ -106,7 +111,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N5Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N5Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
 
         public Sv20180120N5Validator(IValidationResultHandler validationResultHandler,
@@ -132,7 +137,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N6Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N6Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N6Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -154,17 +159,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N7Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N7Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N7Validator(IValidationResultHandler validationResultHandler,
-            IReportQuarterHelper<Reports> reportQuarterHelper)
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper)
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N7Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                 .Sum(e => e.РасчСВ_ОПС.ВыплНачислФЛ.СумВсегоПер) ?? 0;
@@ -201,17 +206,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N8Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N8Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N8Validator(IValidationResultHandler validationResultHandler,
-            IReportQuarterHelper<Reports> reportQuarterHelper)
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper)
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N8Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                 .Sum(e => e.РасчСВ_ОПС.НачислСВНеПрев.СумВсегоПер) ?? 0;
@@ -248,17 +253,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N9Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N9Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N9Validator(IValidationResultHandler validationResultHandler,
-            IReportQuarterHelper<Reports> reportQuarterHelper)
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper)
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N9Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                         .Sum(e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(s=>s.НачислСВДоп.СумВсегоПер)) ?? 0
@@ -307,17 +312,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N10Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N10Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N10Validator(IValidationResultHandler validationResultHandler, 
-            IReportQuarterHelper<Reports> reportQuarterHelper) 
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper) 
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N10Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                              .Sum(e => e.РасчСВ_ОПС.БазНачислСВ.СумВсегоПосл3М) ?? 0
@@ -364,17 +369,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N11Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N11Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N11Validator(IValidationResultHandler validationResultHandler,
-            IReportQuarterHelper<Reports> reportQuarterHelper)
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper)
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N11Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                         .Sum(e => e.РасчСВ_ОПС.БазНачислСВ.СумВсегоПер) ?? 0
@@ -424,7 +429,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N12Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N12Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
 
         public Sv20180120N12Validator(IValidationResultHandler validationResultHandler, 
@@ -436,6 +441,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N12Validator;
         public override bool IsSpecificatiedBy(Файл entity)
         {
+
             var quarter = _reportQuarterHelper.GetQuarter(entity);
 
             var lsum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
@@ -451,7 +457,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N13Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N13Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N13Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -479,7 +485,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N14Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N14Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N14Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -507,7 +513,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N15Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N15Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N15Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -533,17 +539,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N16Validator : BaseReportStepValidator<Reports>
+    public class Sv20180120N16Validator : BaseReportStepValidator<AllEssReports>
     {
         public Sv20180120N16Validator(IValidationResultHandler validationResultHandler,
-            IReportQuarterHelper<Reports> reportQuarterHelper)
+            IReportQuarterHelper<AllEssReports> reportQuarterHelper)
             : base(validationResultHandler, reportQuarterHelper)
         {
         }
 
         protected override CheckReportType CheckReportType => CheckReportType.Sv20180120N16Validator;
 
-        public override bool IsSpecificatiedBy(Reports entity)
+        public override bool IsSpecificatiedBy(AllEssReports entity)
         {
             var lsumQ1 = entity.Esss1?.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС
                     .Sum(e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(s=>s.БазНачислСВДоп.СумВсегоПер)) ?? 0
@@ -592,7 +598,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N17Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N17Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N17Validator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) 
@@ -609,7 +615,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N18Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N18Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N18Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -624,7 +630,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N19Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N19Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N19Validator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
@@ -640,7 +646,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N20Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N20Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N20Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -655,7 +661,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N21Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N21Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N21Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -670,7 +676,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N22Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N22Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N22Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -685,7 +691,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N23Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N23Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N23Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -700,7 +706,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N24Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N24Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N24Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -714,7 +720,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N25Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N25Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N25Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -728,7 +734,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N27Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N27Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N27Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
         {
@@ -757,7 +763,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N28Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N28Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N28Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -788,7 +794,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N29Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N29Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N29Validator(IValidationResultHandler validationResultHandler, 
             IReportQuarterHelper<Файл> reportQuarterHelper) 
@@ -819,7 +825,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N30Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N30Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N30Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)
@@ -850,7 +856,7 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
         }
     }
 
-    public class Sv20180120N31Validator : BaseReportStepValidator<Файл>
+    public class Sv20180120N31Validator : BaseReportStepValidator<Файл>, IEsssComplexValidator
     {
         public Sv20180120N31Validator(IValidationResultHandler validationResultHandler,
             IReportQuarterHelper<Файл> reportQuarterHelper)

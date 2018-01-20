@@ -73,4 +73,25 @@ namespace NdflVerification.ReportsContext.Domain
         public Services.Factories.XsdImplement.Esss.Файл Esss { get; set; }
         public Services.Factories.XsdImplement.Six.Файл Ndfl { get; set; }
     }
+
+    public class AllEssReports
+    {
+        private Reports report;
+
+        public AllEssReports(Reports report)
+        {
+            this.report = report;
+        }
+
+        public Services.Factories.XsdImplement.Esss.Файл Esss1 => report.Esss1;
+        public Services.Factories.XsdImplement.Esss.Файл Esss2 => report.Esss2;
+        public Services.Factories.XsdImplement.Esss.Файл Esss3 => report.Esss3;
+        public Services.Factories.XsdImplement.Esss.Файл Esss4 => report.Esss4;
+
+        public bool NeedValidate => Esss1 != null
+                                    || Esss2 != null
+                                    || Esss3 != null
+                                    || Esss4 != null;
+    }
+
 }

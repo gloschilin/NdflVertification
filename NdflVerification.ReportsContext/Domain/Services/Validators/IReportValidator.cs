@@ -1,4 +1,6 @@
-﻿namespace NdflVerification.ReportsContext.Domain.Services.Validators
+﻿using System;
+
+namespace NdflVerification.ReportsContext.Domain.Services.Validators
 {
     /// <summary>
     /// Первичный валидатор отчетности
