@@ -178,79 +178,79 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
     }
 
 
-    public class Sv1300Validator : BaseReportStepValidator<Файл>
-    {
-        public Sv1300Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
-        {
-        }
+    //public class Sv1300Validator : BaseReportStepValidator<Файл>
+    //{
+    //    public Sv1300Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
+    //    {
+    //    }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv1300Validator;
-        public override bool IsSpecificatiedBy(Файл entity)
-        {
-            var month = GetQuarterStartMonth(entity) + 2;
-            var sum1 =
-                entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
+    //    protected override CheckReportType CheckReportType => CheckReportType.Sv1300Validator;
+    //    public override bool IsSpecificatiedBy(Файл entity)
+    //    {
+    //        var month = GetQuarterStartMonth(entity) + 2;
+    //        var sum1 =
+    //            entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
 
-            var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
+    //        var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум3Посл3М));
 
-            var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
+    //        var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
+    //            .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
-            return sum1 + sum2 == sum3;
-        }
-    }
+    //        return sum1 + sum2 == sum3;
+    //    }
+    //}
 
-    public class Sv1299Validator : BaseReportStepValidator<Файл>
-    {
-        public Sv1299Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
-        {
-        }
+    //public class Sv1299Validator : BaseReportStepValidator<Файл>
+    //{
+    //    public Sv1299Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
+    //    {
+    //    }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv1299Validator;
-        public override bool IsSpecificatiedBy(Файл entity)
-        {
-            var month = GetQuarterStartMonth(entity) + 1;
+    //    protected override CheckReportType CheckReportType => CheckReportType.Sv1299Validator;
+    //    public override bool IsSpecificatiedBy(Файл entity)
+    //    {
+    //        var month = GetQuarterStartMonth(entity) + 1;
 
-            var sum1 =
-                entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
+    //        var sum1 =
+    //            entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
 
-            var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
+    //        var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум2Посл3М));
 
-            var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
+    //        var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
+    //            .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
-            return sum1 + sum2 == sum3;
-        }
-    }
+    //        return sum1 + sum2 == sum3;
+    //    }
+    //}
 
-    public class Sv1298Validator : BaseReportStepValidator<Файл>
-    {
-        public Sv1298Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
-        {
-        }
+    //public class Sv1298Validator : BaseReportStepValidator<Файл>
+    //{
+    //    public Sv1298Validator(IValidationResultHandler validationResultHandler, IReportQuarterHelper<Файл> reportQuarterHelper) : base(validationResultHandler, reportQuarterHelper)
+    //    {
+    //    }
 
-        protected override CheckReportType CheckReportType => CheckReportType.Sv1298Validator;
-        public override bool IsSpecificatiedBy(Файл entity)
-        {
-            var month = GetQuarterStartMonth(entity);
+    //    protected override CheckReportType CheckReportType => CheckReportType.Sv1298Validator;
+    //    public override bool IsSpecificatiedBy(Файл entity)
+    //    {
+    //        var month = GetQuarterStartMonth(entity);
 
-            var sum1 =
-                entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
+    //        var sum1 =
+    //            entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_42812.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
 
-            var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
-                    e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
+    //        var sum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(
+    //                e => e.РасчСВ_ОПС428.РасчСВ_4283.Sum(c => c.ВыплНачислФЛ.Сум1Посл3М));
 
-            var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
-                .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
+    //        var sum3 = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.SelectMany(e => e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ)
+    //            .Where(e => e.Месяц.ToInt() == month).Sum(e => e.ВыплСВ);
 
-            return sum1 + sum2 == sum3;
-        }
-    }
+    //        return sum1 + sum2 == sum3;
+    //    }
+    //}
 
 
     public class Sv1297Validator : BaseReportStepValidator<Файл>

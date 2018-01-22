@@ -49,13 +49,16 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.Valid
 
         public override bool IsSpecificatiedBy(Файл entity)
         {
-            var lsum = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
+            var lsum1 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
                 e.РасчСВ_ОПС428.РасчСВ_42812.Sum(s => s.НачислСВДоп.СумВсегоПосл3М));
+
+            var lsum2 = entity.Документ.РасчетСВ.ОбязПлатСВ.РасчСВ_ОПС_ОМС.Sum(e =>
+                e.РасчСВ_ОПС428.РасчСВ_4283.Sum(s => s.НачислСВДоп.СумВсегоПосл3М));
 
             var rsum = entity.Документ.РасчетСВ.ПерсСвСтрахЛиц.Sum(e =>
                 e.СвВыплСВОПС.ВыплСВДоп.ВыплСВДопМТ.Sum(s => s.НачислСВ));
 
-            return lsum == rsum;
+            return lsum1 + lsum2 == rsum;
         }
     }
 
