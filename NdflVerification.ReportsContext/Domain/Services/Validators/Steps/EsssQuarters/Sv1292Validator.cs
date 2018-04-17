@@ -14,17 +14,17 @@ namespace NdflVerification.ReportsContext.Domain.Services.Validators.Steps.EsssQ
         protected override CheckReportType CheckReportType => CheckReportType.Sv1308Validator;
         public override bool IsSpecificatiedBy(EsssReports entity)
         {
-            foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Current.Документ.РасчетСВ.ПерсСвСтрахЛиц)
-            {
-                var previousItem = entity.Previous?.Документ.РасчетСВ.ПерсСвСтрахЛиц
-                    .FirstOrDefault(e=>e.ДанФЛПолуч.СНИЛС == файлДокументРасчетСвПерсСвСтрахЛиц.ДанФЛПолуч.СНИЛС);
+            //foreach (var файлДокументРасчетСвПерсСвСтрахЛиц in entity.Current.Документ.РасчетСВ.ПерсСвСтрахЛиц)
+            //{
+            //    var previousItem = entity.Previous?.Документ.РасчетСВ.ПерсСвСтрахЛиц
+            //        .FirstOrDefault(e=>e.ДанФЛПолуч.СНИЛС == файлДокументРасчетСвПерсСвСтрахЛиц.ДанФЛПолуч.СНИЛС);
 
-                if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 +
-                    (previousItem?.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 ?? 0) > 876000)
-                {
-                    return false;
-                }
-            }
+            //    if (файлДокументРасчетСвПерсСвСтрахЛиц.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 +
+            //        (previousItem?.СвВыплСВОПС.СвВыпл.ВыплОПСВс3 ?? 0) > 876000)
+            //    {
+            //        return false;
+            //    }
+            //}
 
             return true;
         }

@@ -82,22 +82,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/NdflVerification.ReportsContext.dll">
-      <publishTime>01/22/2018 19:17:47</publishTime>
+      <publishTime>04/17/2018 18:05:58</publishTime>
     </File>
     <File Include="bin/NdflVerification.ReportsContext.pdb">
-      <publishTime>01/22/2018 19:17:47</publishTime>
+      <publishTime>04/17/2018 18:05:58</publishTime>
     </File>
     <File Include="bin/NdflVerification.Texts.dll">
-      <publishTime>01/20/2018 18:27:39</publishTime>
+      <publishTime>04/17/2018 18:05:58</publishTime>
     </File>
     <File Include="bin/NdflVerification.Texts.pdb">
-      <publishTime>01/20/2018 18:27:39</publishTime>
+      <publishTime>04/17/2018 18:05:58</publishTime>
     </File>
     <File Include="bin/NdflVertification.Web.Api.dll">
-      <publishTime>01/22/2018 19:17:48</publishTime>
+      <publishTime>04/17/2018 18:05:59</publishTime>
     </File>
     <File Include="bin/NdflVertification.Web.Api.pdb">
-      <publishTime>01/22/2018 19:17:48</publishTime>
+      <publishTime>04/17/2018 18:05:59</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>08/03/2014 20:33:56</publishTime>
